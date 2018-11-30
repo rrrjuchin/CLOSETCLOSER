@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "mallmenu">
+        <item>상품관리</item>
+        <item>상품등</item>
+    </string-array>
+</resources>

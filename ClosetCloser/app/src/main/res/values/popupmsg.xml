@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name = "ERROR1">이용약관에 동의하셔야만 회원가입이 진행됩니다.</string>
+    <string name = "ERROR2">개인정보 수집 및 이용 약관에 동의하셔야만 회원가입이 진행됩니다.</string>
+    <string name = "ERROR3">이메일을 형식에 맞게 작성하여 주십시오.</string>
+    <string name = "ERROR4">비밀번호를 형식에 맞게 작성하여 주십시오.</string>
+    <string name = "ERROR5">로그아웃을 하시겠습니까?</string>>
+    <string name = "Confirm">확인</string>
+
+
+</resources>

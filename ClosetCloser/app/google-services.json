@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "857090777641",
+    "firebase_url": "https://closet-closer.firebaseio.com",
+    "project_id": "closet-closer",
+    "storage_bucket": "closet-closer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857090777641:android:b83f79ee7da73e2f",
+        "android_client_info": {
+          "package_name": "com.team1.se2018.closetcloser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857090777641-s4htpgbh35n66ncfhck852j0gaa8s2kf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.team1.se2018.closetcloser",
+            "certificate_hash": "c8c1dd39ee4314249fee55d5e6751dd2be3e1905"
+          }
+        },
+        {
+          "client_id": "857090777641-8sdsjf1qce1sh7ftr5dndcujgg10o1i8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP8Fl7PbXr95Yy6OSTboV6Vq_kQ3lsOgg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857090777641-8sdsjf1qce1sh7ftr5dndcujgg10o1i8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
