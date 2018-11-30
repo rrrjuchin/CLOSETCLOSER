@@ -1,0 +1,651 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:1-65:12
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:1-65:12
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:1-65:12
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:1-65:12
+MERGED from [com.facebook.android:facebook-login:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/53b299b5f516240787f8b1899e8314aa/AndroidManifest.xml:21:1-31:12
+MERGED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:17:1-39:12
+MERGED from [com.android.support:design:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f7b81a7c753187c3ea2b89d7cbab9234/AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:21:1-37:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/f6bc5416610c598c5727a9629db80f4a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/e7f977de76706720087d40eb8787ec36/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.firebase:firebase-database:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.2.aar/4f961d5f2640c12849feb3dcce0ea212/AndroidManifest.xml:15:1-22:12
+MERGED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.firebase:firebase-firestore:15.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-firestore-15.0.0.aar/86d9eadc4598f2311eb0451d1a67583e/AndroidManifest.xml:2:1-8:12
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/a8eba3ea6e26e146fd3c0a5a6da8db2e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/ad9a34a40a487d8b3c511de94fa2e275/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/18fdfddfb3112b912082b8ad2441bdd4/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:17:1-34:12
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:17:1-55:12
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:17:1-65:12
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/4b3f7e1c9f29e2b197336b936519da01/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-15.0.1.aar/c92eec51cc5efc2176dc9be0681cf259/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:15.1.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-15.1.0.aar/2a66f871fecd2eba4533128aaf785d38/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/61afdc5b2de48c2b24cc76cb37375663/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/c8980d28d3fb1965eba2331a59f722a7/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-database-collection:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-database-collection-15.0.1.aar/dc9951277b41fdf0d9a9ad0a8f15d933/AndroidManifest.xml:2:1-8:12
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/fcb3555072cdd1f0c9164ed1ac9b721e/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/850fcabb9d621a781d00b5d09ac73702/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/7fa2b59876b873c0b19aa8cd858185a1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/3b9cfd3c440ea3bcdc6c1b549f7db0c6/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/2ecc351ac457aca298ab0d254437619a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:21:1-53:12
+MERGED from [com.android.support:support-fragment:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/f7cdf6db4620260c45955f1221f928b4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/a059d65f9025fb77b50fdab9fa0b0924/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/8bd186d7edd2280b03e6bb6a91358e4c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/0b85d7b40b6c879274b8cadfe054a222/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/d713b01922d71390ae3b84a9aa5de19a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customtabs:27.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/customtabs-27.0.2.aar/d0aeb6a980656a17eaeafc9b1c9c4744/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/0178c049f09543be01d91ea0f73f6be8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/e7401a492fc8d77ff47e6cd54142043d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/209278acbe84d8d26ca641ed70841e61/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/8cd1c39764f6e54e41f086e0da4a6e46/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/f48c313a9d50390d4d9af0764dac7d5d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/14143e8ed88e48bb700243dc8bdbadc4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/64fbeb33078c8f16367c26bb5025fe24/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/b41a7bb3aceb7157a7c4c70ab99b7bc6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/cfdf01d7864fbd5c690efab27ec6aef2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/ab9faa6c9ab5168f9fb56419174aac7e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/a0259fc7640fa8587e6bae08fb804e55/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/125ae71c3cca3c252f04d2f40ae5fa3b/AndroidManifest.xml:17:1-24:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/99335dda6a6448e22745b8d403865743/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/2fb783c3d3afee549592044ae2e1f0b7/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/3d062b546aff1dbf9ebb2a49a89f7be4/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/060de7d61ba7a0e50f17afcdc59626f1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/57a98752c4b32c5a37cc184bfa1eee8f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/9aa60b1c60c571d723bd74ffc2df18fb/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/52de8eab91874e8252ceac7d2c5ef822/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/24f70fb4cb0ce4eabb38e3feb27347e2/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/088b773c6f62c87100b563cc6fc3f611/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/9f444294267ac46ac0944801b66a42fd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/207800c9f800d4f6887f647aa4cb4f36/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/78b46d2efae85e5da72f5b6ed09075d0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/3aa2015cac0c6bd6d84dd30531d72bb7/AndroidManifest.xml:17:1-24:12
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:1-65:12
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:1-65:12
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:1-65:12
+	package
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:3:5-44
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:1-65:12
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:1-65:12
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:6:5-71
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:6:22-68
+uses-permission#android.permission.READ_PROFILE
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:7:5-71
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:7:22-68
+uses-permission#android.permission.READ_CONTACTS
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:8:5-72
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:8:22-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:9:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:9:22-64
+application
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:11:5-63:19
+MERGED from [com.facebook.android:facebook-login:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/53b299b5f516240787f8b1899e8314aa/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/53b299b5f516240787f8b1899e8314aa/AndroidManifest.xml:28:5-29:19
+MERGED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:22:5-37:19
+MERGED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:22:5-37:19
+MERGED from [com.android.support:design:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f7b81a7c753187c3ea2b89d7cbab9234/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f7b81a7c753187c3ea2b89d7cbab9234/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:28:5-35:19
+MERGED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:28:5-35:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/e7f977de76706720087d40eb8787ec36/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/e7f977de76706720087d40eb8787ec36/AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:22:5-36:19
+MERGED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:22:5-36:19
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/ad9a34a40a487d8b3c511de94fa2e275/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/ad9a34a40a487d8b3c511de94fa2e275/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/18fdfddfb3112b912082b8ad2441bdd4/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/18fdfddfb3112b912082b8ad2441bdd4/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:34:5-63:19
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:34:5-63:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/4b3f7e1c9f29e2b197336b936519da01/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/4b3f7e1c9f29e2b197336b936519da01/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/61afdc5b2de48c2b24cc76cb37375663/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/61afdc5b2de48c2b24cc76cb37375663/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:9:5-15:19
+MERGED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:9:5-15:19
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/c8980d28d3fb1965eba2331a59f722a7/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/c8980d28d3fb1965eba2331a59f722a7/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/fcb3555072cdd1f0c9164ed1ac9b721e/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/fcb3555072cdd1f0c9164ed1ac9b721e/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/850fcabb9d621a781d00b5d09ac73702/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/850fcabb9d621a781d00b5d09ac73702/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/7fa2b59876b873c0b19aa8cd858185a1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/7fa2b59876b873c0b19aa8cd858185a1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/3b9cfd3c440ea3bcdc6c1b549f7db0c6/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/3b9cfd3c440ea3bcdc6c1b549f7db0c6/AndroidManifest.xml:22:5-26:19
+MERGED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:28:5-51:19
+MERGED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:28:5-51:19
+MERGED from [com.android.support:support-compat:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/125ae71c3cca3c252f04d2f40ae5fa3b/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/125ae71c3cca3c252f04d2f40ae5fa3b/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/24f70fb4cb0ce4eabb38e3feb27347e2/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/24f70fb4cb0ce4eabb38e3feb27347e2/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/3aa2015cac0c6bd6d84dd30531d72bb7/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/3aa2015cac0c6bd6d84dd30531d72bb7/AndroidManifest.xml:22:5-20
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/125ae71c3cca3c252f04d2f40ae5fa3b/AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:14:9-41
+	android:roundIcon
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:15:9-54
+	android:icon
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:13:9-43
+	android:allowBackup
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:17:9-40
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:18:9-20:55
+	android:value
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:20:13-52
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:19:13-58
+activity#com.facebook.FacebookActivity
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:22:9-25:48
+MERGED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:29:9-32:66
+MERGED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:29:9-32:66
+	android:label
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:25:13-45
+	android:configChanges
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:24:13-96
+	android:theme
+		ADDED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:32:13-63
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:23:13-57
+activity#com.facebook.CustomTabActivity
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:26:9-37:20
+MERGED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:34:9-67
+MERGED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:34:9-67
+	android:exported
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:27:13-58
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:@string/fb_login_protocol_scheme
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:29:13-36:29
+action#android.intent.action.VIEW
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:30:17-69
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:30:25-66
+category#android.intent.category.DEFAULT
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:32:17-76
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:32:27-73
+category#android.intent.category.BROWSABLE
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:33:17-78
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:33:27-75
+data
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:35:17-75
+	android:scheme
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:35:23-72
+activity#com.team1.se2018.closetcloser.MainActivity
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:38:9-44:20
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:38:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:39:13-43:29
+action#android.intent.action.MAIN
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:40:17-69
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:40:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:42:17-77
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:42:27-74
+activity#com.team1.se2018.closetcloser.RegisterActivity
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:45:9-54
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:45:19-51
+activity#com.team1.se2018.closetcloser.SellerLoginActivity
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:46:9-57
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:46:19-54
+activity#com.team1.se2018.closetcloser.SellerRegisterActivity
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:47:9-60
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:47:19-57
+activity#com.team1.se2018.closetcloser.MallMenuActivity
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:48:9-51:59
+	android:label
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:50:13-61
+	android:theme
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:51:13-56
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:49:13-45
+activity#com.team1.se2018.closetcloser.MainMenuActivity
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:52:9-54
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:52:19-51
+activity#com.team1.se2018.closetcloser.Fragment1
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:53:9-47
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:53:19-44
+activity#com.team1.se2018.closetcloser.Fragment2
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:54:9-47
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:54:19-44
+activity#com.team1.se2018.closetcloser.Fragment3
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:55:9-47
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:55:19-44
+activity#com.team1.se2018.closetcloser.LoginActivity
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:56:9-58:60
+	android:label
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:58:13-57
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:57:13-42
+activity#com.team1.se2018.closetcloser.Fragment4
+ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:59:9-62:68
+	android:label
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:61:13-61
+	android:theme
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:62:13-56
+	android:name
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml:60:13-38
+uses-sdk
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+MERGED from [com.facebook.android:facebook-login:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/53b299b5f516240787f8b1899e8314aa/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/53b299b5f516240787f8b1899e8314aa/AndroidManifest.xml:24:5-26:41
+MERGED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f7b81a7c753187c3ea2b89d7cbab9234/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/f7b81a7c753187c3ea2b89d7cbab9234/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/f6bc5416610c598c5727a9629db80f4a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/f6bc5416610c598c5727a9629db80f4a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/e7f977de76706720087d40eb8787ec36/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/e7f977de76706720087d40eb8787ec36/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-database:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.2.aar/4f961d5f2640c12849feb3dcce0ea212/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-database:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.2.aar/4f961d5f2640c12849feb3dcce0ea212/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-firestore:15.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-firestore-15.0.0.aar/86d9eadc4598f2311eb0451d1a67583e/AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-firestore:15.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-firestore-15.0.0.aar/86d9eadc4598f2311eb0451d1a67583e/AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/a8eba3ea6e26e146fd3c0a5a6da8db2e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/a8eba3ea6e26e146fd3c0a5a6da8db2e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/ad9a34a40a487d8b3c511de94fa2e275/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/ad9a34a40a487d8b3c511de94fa2e275/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/18fdfddfb3112b912082b8ad2441bdd4/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/18fdfddfb3112b912082b8ad2441bdd4/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/4b3f7e1c9f29e2b197336b936519da01/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/4b3f7e1c9f29e2b197336b936519da01/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-15.0.1.aar/c92eec51cc5efc2176dc9be0681cf259/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-15.0.1.aar/c92eec51cc5efc2176dc9be0681cf259/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:15.1.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-15.1.0.aar/2a66f871fecd2eba4533128aaf785d38/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:15.1.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-15.1.0.aar/2a66f871fecd2eba4533128aaf785d38/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/61afdc5b2de48c2b24cc76cb37375663/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/61afdc5b2de48c2b24cc76cb37375663/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/c8980d28d3fb1965eba2331a59f722a7/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/c8980d28d3fb1965eba2331a59f722a7/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-database-collection:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-database-collection-15.0.1.aar/dc9951277b41fdf0d9a9ad0a8f15d933/AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-database-collection:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-database-collection-15.0.1.aar/dc9951277b41fdf0d9a9ad0a8f15d933/AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/fcb3555072cdd1f0c9164ed1ac9b721e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/fcb3555072cdd1f0c9164ed1ac9b721e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/850fcabb9d621a781d00b5d09ac73702/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/850fcabb9d621a781d00b5d09ac73702/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/7fa2b59876b873c0b19aa8cd858185a1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/7fa2b59876b873c0b19aa8cd858185a1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/3b9cfd3c440ea3bcdc6c1b549f7db0c6/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/3b9cfd3c440ea3bcdc6c1b549f7db0c6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/2ecc351ac457aca298ab0d254437619a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/2ecc351ac457aca298ab0d254437619a/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:support-fragment:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/f7cdf6db4620260c45955f1221f928b4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/f7cdf6db4620260c45955f1221f928b4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/a059d65f9025fb77b50fdab9fa0b0924/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/a059d65f9025fb77b50fdab9fa0b0924/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/8bd186d7edd2280b03e6bb6a91358e4c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/8bd186d7edd2280b03e6bb6a91358e4c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/0b85d7b40b6c879274b8cadfe054a222/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/0b85d7b40b6c879274b8cadfe054a222/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/d713b01922d71390ae3b84a9aa5de19a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/d713b01922d71390ae3b84a9aa5de19a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/customtabs-27.0.2.aar/d0aeb6a980656a17eaeafc9b1c9c4744/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/customtabs-27.0.2.aar/d0aeb6a980656a17eaeafc9b1c9c4744/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/0178c049f09543be01d91ea0f73f6be8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/0178c049f09543be01d91ea0f73f6be8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/e7401a492fc8d77ff47e6cd54142043d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/e7401a492fc8d77ff47e6cd54142043d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/209278acbe84d8d26ca641ed70841e61/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/209278acbe84d8d26ca641ed70841e61/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/8cd1c39764f6e54e41f086e0da4a6e46/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/8cd1c39764f6e54e41f086e0da4a6e46/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/f48c313a9d50390d4d9af0764dac7d5d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/f48c313a9d50390d4d9af0764dac7d5d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/14143e8ed88e48bb700243dc8bdbadc4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/14143e8ed88e48bb700243dc8bdbadc4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/64fbeb33078c8f16367c26bb5025fe24/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/64fbeb33078c8f16367c26bb5025fe24/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/b41a7bb3aceb7157a7c4c70ab99b7bc6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/b41a7bb3aceb7157a7c4c70ab99b7bc6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/cfdf01d7864fbd5c690efab27ec6aef2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/cfdf01d7864fbd5c690efab27ec6aef2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/ab9faa6c9ab5168f9fb56419174aac7e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/ab9faa6c9ab5168f9fb56419174aac7e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/a0259fc7640fa8587e6bae08fb804e55/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/a0259fc7640fa8587e6bae08fb804e55/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/125ae71c3cca3c252f04d2f40ae5fa3b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/125ae71c3cca3c252f04d2f40ae5fa3b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/99335dda6a6448e22745b8d403865743/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/99335dda6a6448e22745b8d403865743/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/2fb783c3d3afee549592044ae2e1f0b7/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/2fb783c3d3afee549592044ae2e1f0b7/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/3d062b546aff1dbf9ebb2a49a89f7be4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/3d062b546aff1dbf9ebb2a49a89f7be4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/060de7d61ba7a0e50f17afcdc59626f1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/060de7d61ba7a0e50f17afcdc59626f1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/57a98752c4b32c5a37cc184bfa1eee8f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/57a98752c4b32c5a37cc184bfa1eee8f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/9aa60b1c60c571d723bd74ffc2df18fb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/9aa60b1c60c571d723bd74ffc2df18fb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/52de8eab91874e8252ceac7d2c5ef822/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/52de8eab91874e8252ceac7d2c5ef822/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/24f70fb4cb0ce4eabb38e3feb27347e2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/24f70fb4cb0ce4eabb38e3feb27347e2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/088b773c6f62c87100b563cc6fc3f611/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/088b773c6f62c87100b563cc6fc3f611/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/9f444294267ac46ac0944801b66a42fd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/9f444294267ac46ac0944801b66a42fd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/207800c9f800d4f6887f647aa4cb4f36/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/207800c9f800d4f6887f647aa4cb4f36/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/78b46d2efae85e5da72f5b6ed09075d0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/78b46d2efae85e5da72f5b6ed09075d0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/3aa2015cac0c6bd6d84dd30531d72bb7/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/3aa2015cac0c6bd6d84dd30531d72bb7/AndroidManifest.xml:20:5-44
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+		ADDED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+		INJECTED from /home/juchin/Software_Dev_PJ/ClosetCloser/app/src/main/AndroidManifest.xml
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:33:9-36:110
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:35:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.0.aar/6c1b663494ea501f49d840fe1a02cf1d/AndroidManifest.xml:34:13-89
+activity#com.facebook.CustomTabMainActivity
+ADDED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:33:9-71
+	android:name
+		ADDED from [com.facebook.android:facebook-common:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/addb96e55c661ec8fbcb126b3a8698a7/AndroidManifest.xml:33:19-68
+activity#com.google.firebase.auth.internal.FederatedSignInActivity
+ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:23:9-29:75
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:25:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:27:13-48
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:26:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:28:13-102
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:29:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:24:13-85
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:31:9-35:19
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:27:9-31:19
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:27:9-31:19
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:35:9-39:19
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:35:9-39:19
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:31:18-89
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:16.0.3] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.3.aar/d6394aed582df129c73deba77938824b/AndroidManifest.xml:33:17-109
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:23:22-76
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:24:22-65
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:28:13-30:85
+	android:value
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:30:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/a8cb728b546d8a1d8a2a5b14ae061d53/AndroidManifest.xml:29:17-139
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:30:13-85
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:34:9-42:20
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:29:9-37:20
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/ce698375e911bf491b297660d632fdd0/AndroidManifest.xml:29:9-37:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:36:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:37:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:38:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:35:13-100
+intent-filter#action:name:com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:39:13-41:29
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:40:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:40:25-76
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:44:9-47:40
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:46:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:45:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:48:9-52:72
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:50:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:51:13-37
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:52:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/fa230381af4f7dab39f7569b37ff1ee9/AndroidManifest.xml:49:13-87
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:26:22-79
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:28:5-30:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:30:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:29:9-63
+permission#com.team1.se2018.closetcloser.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:28:5-30:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:30:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:29:9-63
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:32:22-76
+uses-permission#com.team1.se2018.closetcloser.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:32:22-76
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:36:13-38:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:38:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:37:17-96
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:41:9-50:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:43:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:44:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:42:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+category:name:${applicationId}
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:45:13-49:29
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+category:name:com.team1.se2018.closetcloser
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:45:13-49:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:46:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:46:25-78
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:48:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:48:27-58
+category#com.team1.se2018.closetcloser
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:48:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:48:27-58
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:56:9-62:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:58:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:57:13-77
+intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:59:13-61:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:59:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:60:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:16.0.0] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/a75a39c26f1b1f6f0626efda85060502/AndroidManifest.xml:60:25-77
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/61afdc5b2de48c2b24cc76cb37375663/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/61afdc5b2de48c2b24cc76cb37375663/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/61afdc5b2de48c2b24cc76cb37375663/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/61afdc5b2de48c2b24cc76cb37375663/AndroidManifest.xml:24:13-79
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:10:9-14:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:12:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:13:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:14:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:16.0.2] /home/juchin/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.2.aar/6b8c87335655d47fc7b0f3e438139d4b/AndroidManifest.xml:11:13-77
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/3b9cfd3c440ea3bcdc6c1b549f7db0c6/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/3b9cfd3c440ea3bcdc6c1b549f7db0c6/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/3b9cfd3c440ea3bcdc6c1b549f7db0c6/AndroidManifest.xml:24:13-58
+provider#com.facebook.internal.FacebookInitProvider
+ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:39:9-42:40
+	android:authorities
+		ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:41:13-72
+	android:exported
+		ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:42:13-37
+	android:name
+		ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:40:13-70
+receiver#com.facebook.CurrentAccessTokenExpirationBroadcastReceiver
+ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:44:9-50:20
+	android:exported
+		ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:46:13-37
+	android:name
+		ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:45:13-86
+intent-filter#action:name:com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED
+ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:47:13-49:29
+action#com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED
+ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:48:17-95
+	android:name
+		ADDED from [com.facebook.android:facebook-core:4.38.1] /home/juchin/.gradle/caches/transforms-1/files-1.1/facebook-core-4.38.1.aar/c10642c121231024d478313313940f05/AndroidManifest.xml:48:25-92
