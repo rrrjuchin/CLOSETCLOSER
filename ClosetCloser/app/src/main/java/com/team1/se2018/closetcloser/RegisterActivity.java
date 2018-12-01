@@ -94,7 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
                 dataDB1.put("uid",firebaseAuth.getUid());
                 db.collection("Id_collect").document(firebaseAuth.getUid())
                         .set(dataDB1, SetOptions.merge());
-                Intent registerIntent = new Intent(RegisterActivity.this, MainMenuActivity.class);
+                Intent registerIntent = new Intent(RegisterActivity.this, MainMenuTestActivity.class);
                 RegisterActivity.this.startActivity(registerIntent);
             }
         });
