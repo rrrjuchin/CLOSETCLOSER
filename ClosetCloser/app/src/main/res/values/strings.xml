@@ -32,4 +32,15 @@
     <string name="fb_login_protocol_scheme">fb337127057103576</string>
     <string name="title_activity_fragment4">Fragment4</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_fragment__bottom">Fragment_Bottom</string>
+    <string name="title_activity_main_menu_test">MainMenuTestActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">CLOSET CLOSER</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_daily_recommendation">DailyRecommendationActivity</string>
+
 </resources>
