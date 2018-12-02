@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/juchin/Software_Dev_PJ/ClosetCloser/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "C:\\Users\\dongyoung\\AndroidStudioProjects\\ClosetCloser\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/juchin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/f6bc5416610c598c5727a9629db80f4a/res/values-night-v8/values-night-v8.xml",
+                    "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",

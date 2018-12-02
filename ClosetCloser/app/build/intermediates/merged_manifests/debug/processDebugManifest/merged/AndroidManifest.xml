@@ -33,7 +33,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/Theme.AppCompat.Light" >
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -69,7 +69,9 @@
             android:name="com.team1.se2018.closetcloser.MallMenuActivity"
             android:label="@string/title_activity_mall_menu"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.team1.se2018.closetcloser.MainMenuActivity" />
+        <activity
+            android:name="com.team1.se2018.closetcloser.MainMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.team1.se2018.closetcloser.Fragment1" />
         <activity android:name="com.team1.se2018.closetcloser.Fragment2" />
         <activity android:name="com.team1.se2018.closetcloser.Fragment3" />
