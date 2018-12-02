@@ -1,8 +1,10 @@
 package com.team1.se2018.closetcloser;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,8 +14,12 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
@@ -26,12 +32,17 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Map<String,Object> dataDB = new HashMap<>();
     Map<String,Object> dataDB1 = new HashMap<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        final Intent intent = getIntent();
+        final String logintoken = intent.getStringExtra("userID");
+
+
+
 
         final EditText cusname = (EditText) findViewById(R.id.nameTextnorm);
         cusname.setPrivateImeOptions("defaultInputmode=korean");
@@ -84,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
                 db.collection("Normmem").document(firebaseAuth.getUid())
                         .set(dataDB, SetOptions.merge());
                 dataDB1.put("uid",firebaseAuth.getUid());
-                db.collection("Id_collect").document(firebaseAuth.getUid())
+                db.collection("Id_collect").document(logintoken)
                         .set(dataDB1, SetOptions.merge());
                 Intent registerIntent = new Intent(RegisterActivity.this, MainMenuActivity.class);
                 RegisterActivity.this.startActivity(registerIntent);

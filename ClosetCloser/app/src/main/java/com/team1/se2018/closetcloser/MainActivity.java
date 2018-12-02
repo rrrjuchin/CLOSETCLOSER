@@ -26,6 +26,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     // 파이어베이스 인증 객체 생성
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-
+    private String logintoken;
     // 구글  로그인 버튼
     private Button buttonSeller;
     private CallbackManager callbackManager;
@@ -78,8 +80,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 handleFacebookAccessToken(loginResult.getAccessToken());
-                System.out.println(firebaseAuth.getUid());
+
+                db.collection("Id_collect")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        if(document.getId().equals(logintoken)){
+                                            Intent intents = new Intent(MainActivity.this, MainMenuActivity.class);
+                                            MainActivity.this.startActivity(intents);
+                                        }
+                                    }
+                                } else {
+                                }
+                            }
+                        });
+
+
                 Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
+                intent.putExtra("userID",logintoken);
                 startActivity(intent);
                 finish();
             }
@@ -128,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
         AuthCredential credential =
                 FacebookAuthProvider.getCredential(token.getToken());
+                logintoken = token.getUserId();
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         System.out.println(credential);
         firebaseAuth.signInWithCredential(credential)
