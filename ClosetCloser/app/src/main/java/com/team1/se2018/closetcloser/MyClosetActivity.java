@@ -11,10 +11,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MyClosetActivity extends Fragment implements DRChildFragment.OnFragmentInteractionListener,DRChildFragment2.OnFragmentInteractionListener{
+public class MyClosetActivity extends Fragment
+        implements MCChildFragment.OnFragmentInteractionListener, MCChildFragment2.OnFragmentInteractionListener{
 
 
     private OnFragmentInteractionListener mListener;
+
+    final Fragment childFragment = new MCChildFragment();
+    final Fragment childFragment2 = new MCChildFragment2();
+    final Fragment childFragment3 = new MCChildFragment3();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,17 +28,14 @@ public class MyClosetActivity extends Fragment implements DRChildFragment.OnFrag
 
         View rootView = inflater.inflate(R.layout.fragment_my_closet, container, false);
 
-
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.replace(R.id.mcchild_fragment_container, childFragment).commit();
 
         return rootView;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-
-        final Fragment childFragment = new DRChildFragment();
-        final Fragment childFragment2 = new DRChildFragment2();
-        final Fragment childFragment3 = new DRChildFragment3();
 
         Button btn_rec1 = (Button) view.findViewById(R.id.btn_otrmc);
         btn_rec1.setOnClickListener(new View.OnClickListener(){

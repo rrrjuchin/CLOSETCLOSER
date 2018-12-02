@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity  {
                     }
                 }).show();
     }
+
     private void openDialogE4(){
         new AlertDialog.Builder(this)
                 .setTitle("")

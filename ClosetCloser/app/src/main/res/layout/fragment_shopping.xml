@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.circularreveal.CircularRevealRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/button"
+        android:layout_marginTop="15dp"
+        android:paddingBottom="7dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:orientation="horizontal"
+        android:id="@+id/tabButtons">
+
+        <Button
+            android:id="@+id/btn_wmc"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorLightGray"
+            android:gravity="bottom"
+            android:padding="5dp"
+            android:text="With My Clothes"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/juliussansone" />
+
+        <Button
+            android:id="@+id/btn_ans"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorLightGray"
+            android:gravity="bottom"
+            android:padding="5dp"
+            android:text="All New Styles "
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/juliussansone" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_none"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="false"
+        app:fontFamily="@font/juliussansone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@id/tabButtons"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/colorGray" />
+
+
+    <FrameLayout
+        android:id="@+id/srchild_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabButtons"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"></FrameLayout>
+
+</android.support.design.circularreveal.CircularRevealRelativeLayout>

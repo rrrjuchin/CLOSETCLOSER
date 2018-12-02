@@ -1150,6 +1150,7 @@ drawable icon_mycloset
 drawable icon_sh
 drawable icon_signout
 drawable left
+drawable logo
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1228,12 +1229,15 @@ id beginning
 id blocking
 id bottom
 id box_count
+id btn_ans
 id btn_btmmc
+id btn_none
 id btn_otrmc
 id btn_rec1
 id btn_rec2
 id btn_rec3
 id btn_topmc
+id btn_wmc
 id button
 id buttonPanel
 id cancel_action
@@ -1268,6 +1272,7 @@ id customPanel
 id dark
 id decor_content_parent
 id default_activity_button
+id deleteButton
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1295,9 +1300,11 @@ id fill_horizontal
 id fill_vertical
 id filled
 id fixed
+id floatingActionButton
 id forever
 id fragcont_dr
 id fragcont_mc
+id fragment3
 id fragment_container
 id ghost_view
 id gone
@@ -1324,6 +1331,7 @@ id largeLabel
 id lblListHeader
 id lblListItem
 id left
+id leftButton
 id light
 id line1
 id line3
@@ -1332,6 +1340,7 @@ id list_item
 id loginButton
 id loginButtonnorm
 id login_button
+id mainContent
 id main_content
 id maleButton
 id mallemail
@@ -1387,6 +1396,7 @@ id registerButton
 id registerButtonnorm
 id registerButtonreg
 id right
+id rightButton
 id right_icon
 id right_side
 id save_image_matrix
@@ -1431,6 +1441,7 @@ id spread_inside
 id src_atop
 id src_in
 id src_over
+id srchild_fragment_container
 id standard
 id start
 id status_bar_latest_event_content
@@ -1439,6 +1450,7 @@ id submenuarrow
 id submit_area
 id tab1
 id tab2_welcome
+id tabButtons
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1457,6 +1469,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id todayTextView
 id toolbar
 id top
 id topPanel
@@ -1564,6 +1577,10 @@ layout fragment_mcchild
 layout fragment_mcchild2
 layout fragment_mcchild3
 layout fragment_my_closet
+layout fragment_shopping
+layout fragment_srchild
+layout fragment_srchild_fragment2
+layout fragment_srchild_fragment3
 layout list_group
 layout list_item
 layout mtrl_layout_snackbar

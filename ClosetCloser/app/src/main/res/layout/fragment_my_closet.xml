@@ -1,55 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.circularreveal.CircularRevealRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.circularreveal.CircularRevealRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_otrmc"
-        android:layout_width="180dp"
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="right"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="280dp"
-        android:text="Outer"
-        android:textColor="@color/colorPrimary"
-        android:textSize="15dp" />
-
-    <Button
-        android:id="@+id/btn_topmc"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="139dp"
-        android:layout_marginRight="139dp"
-        android:text="Top"
-        android:textColor="@color/colorPrimary"
-        android:textSize="15dp" />
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignRight="@id/tabButtons"
+        android:background="@drawable/edit_button"
+        android:text="Edit" />
 
 
-    <Button
-        android:id="@+id/btn_btmmc"
-        android:layout_width="140dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:text="Bottom"
-        android:textColor="@color/colorPrimary"
-        android:textSize="15dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/button"
+        android:layout_marginTop="15dp"
+        android:paddingBottom="7dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:orientation="horizontal"
+        android:id="@+id/tabButtons">
+
+        <Button
+            android:id="@+id/btn_otrmc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Outer"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btn_topmc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Top"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btn_btmmc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Bottom"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@id/tabButtons"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/colorGray" />
+
 
     <FrameLayout
         android:id="@+id/mcchild_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/btn_rec3"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"></FrameLayout>
+        android:layout_below="@id/tabButtons"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"></FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="87dp"
+        android:layout_height="94dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/upload" />
 
 </android.support.design.circularreveal.CircularRevealRelativeLayout>

@@ -9,13 +9,13 @@
             android:icon="@drawable/icon_daily"
             android:title="Daily Recommendation" />
         <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/icon_sh"
+            android:title="Shop New Clothes"/>
+        <item
             android:id="@+id/nav_mycloset"
             android:icon="@drawable/icon_mycloset"
             android:title="My Closet" />
-        <item
-            android:id="@+id/nav_shop"
-            android:icon="@drawable/icon_sh"
-            android:title="Recommendation from DB"/>
         <item
             android:id="@+id/nav_signout"
             android:icon="@drawable/icon_signout"

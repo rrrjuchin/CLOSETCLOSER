@@ -11,11 +11,22 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import static com.team1.se2018.closetcloser.DRChildFragment.*;
+public class MainMenuActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,
+        DailyRecommendationActivity.OnFragmentInteractionListener,
+        DRChildFragment.OnFragmentInteractionListener,
+        DRChildFragment2.OnFragmentInteractionListener,
+        DRChildFragment3.OnFragmentInteractionListener,
+        MCChildFragment.OnFragmentInteractionListener,
+        MCChildFragment2.OnFragmentInteractionListener,
+        MCChildFragment3.OnFragmentInteractionListener,
+        MyClosetActivity.OnFragmentInteractionListener,
+        ShoppingActivity.OnFragmentInteractionListener,
+        SRChildFragment.OnFragmentInteractionListener,
+        SRChildFragment2.OnFragmentInteractionListener,
+        SRChildFragment3.OnFragmentInteractionListener {
 
-public class MainMenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DailyRecommendationActivity.OnFragmentInteractionListener,DRChildFragment.OnFragmentInteractionListener, DRChildFragment2.OnFragmentInteractionListener, DRChildFragment3.OnFragmentInteractionListener, MCChildFragment.OnFragmentInteractionListener,MCChildFragment2.OnFragmentInteractionListener,MCChildFragment3.OnFragmentInteractionListener,MyClosetActivity.OnFragmentInteractionListener {
     private DrawerLayout drawer;
 
     @Override
@@ -53,6 +64,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyClosetActivity()).commit();
                 break;
             case R.id.nav_shop:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ShoppingActivity()).commit();
                 break;
             case R.id.nav_signout:
                 break;
@@ -79,6 +92,12 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void messageFromParentFragment(Uri uri);
     }
 
     @Override

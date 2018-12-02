@@ -11,10 +11,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class DailyRecommendationActivity extends Fragment implements DRChildFragment.OnFragmentInteractionListener,DRChildFragment2.OnFragmentInteractionListener{
+public class DailyRecommendationActivity extends Fragment
+        implements DRChildFragment.OnFragmentInteractionListener,DRChildFragment2.OnFragmentInteractionListener{
 
 
     private OnFragmentInteractionListener mListener;
+
+    final Fragment childFragment = new DRChildFragment();
+    final Fragment childFragment2 = new DRChildFragment2();
+    final Fragment childFragment3 = new DRChildFragment3();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,9 +28,8 @@ public class DailyRecommendationActivity extends Fragment implements DRChildFrag
 
         View rootView = inflater.inflate(R.layout.activity_daily_recommendation, container, false);
 
-
-
-
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.replace(R.id.drchild_fragment_container, childFragment).commit();
 
         Button btn_rec3 = (Button) rootView.findViewById(R.id.btn_rec3);
         btn_rec3.setOnClickListener(new View.OnClickListener(){
@@ -45,9 +49,6 @@ public class DailyRecommendationActivity extends Fragment implements DRChildFrag
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        final Fragment childFragment = new DRChildFragment();
-        final Fragment childFragment2 = new DRChildFragment2();
-        final Fragment childFragment3 = new DRChildFragment3();
 
         Button btn_rec1 = (Button) view.findViewById(R.id.btn_rec1);
         btn_rec1.setOnClickListener(new View.OnClickListener(){
