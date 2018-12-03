@@ -65,22 +65,14 @@
         <activity android:name="com.team1.se2018.closetcloser.RegisterActivity" />
         <activity android:name="com.team1.se2018.closetcloser.SellerLoginActivity" />
         <activity android:name="com.team1.se2018.closetcloser.SellerRegisterActivity" />
+        <activity android:name="com.team1.se2018.closetcloser.LoginEmailActivity" />
+        <activity android:name="com.team1.se2018.closetcloser.RegisterEmailActivity" />
         <activity
             android:name="com.team1.se2018.closetcloser.MallMenuActivity"
             android:label="@string/title_activity_mall_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.team1.se2018.closetcloser.MainMenuActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.team1.se2018.closetcloser.Fragment1" />
-        <activity android:name="com.team1.se2018.closetcloser.Fragment2" />
-        <activity android:name="com.team1.se2018.closetcloser.Fragment3" />
-        <activity
-            android:name="com.team1.se2018.closetcloser.LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name="com.team1.se2018.closetcloser.Fragment4"
-            android:label="@string/title_activity_fragment4"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"

@@ -46,22 +46,15 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".SellerLoginActivity" />
         <activity android:name=".SellerRegisterActivity" />
+        <activity android:name=".LoginEmailActivity" />
+        <activity android:name=".RegisterEmailActivity" />
         <activity
             android:name=".MallMenuActivity"
             android:label="@string/title_activity_mall_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainMenuActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fragment1" />
-        <activity android:name=".Fragment2" />
-        <activity android:name=".Fragment3" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".Fragment4"
-            android:label="@string/title_activity_fragment4"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

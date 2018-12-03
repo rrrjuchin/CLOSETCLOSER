@@ -1285,6 +1285,8 @@ id display_always
 id drawer_layout
 id drchild_fragment_container
 id edit_query
+id email
+id email_login
 id end
 id end_padder
 id enterAlways
@@ -1294,6 +1296,7 @@ id expListView
 id expand_activities_button
 id expanded_menu
 id fab
+id facebook_login
 id femaleButton
 id fill
 id fill_horizontal
@@ -1339,7 +1342,7 @@ id listMode
 id list_item
 id loginButton
 id loginButtonnorm
-id login_button
+id login_but
 id mainContent
 id main_content
 id maleButton
@@ -1391,10 +1394,12 @@ id pin
 id progress_bar
 id progress_circular
 id progress_horizontal
+id pwd
 id radio
 id registerButton
 id registerButtonnorm
 id registerButtonreg
+id register_but
 id right
 id rightButton
 id right_icon
@@ -1421,7 +1426,6 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selectedAge
-id sellerButton
 id sex
 id sexSelection
 id shortcut
@@ -1540,10 +1544,12 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_daily_recommendation
 layout activity_login
+layout activity_loginemail
 layout activity_main
 layout activity_main_menu_test
 layout activity_mall_menu
 layout activity_register
+layout activity_registeremail
 layout activity_seller_login
 layout activity_seller_register
 layout app_bar_main_menu_test
