@@ -1319,7 +1319,6 @@ id icon
 id icon_group
 id icon_only
 id idText
-id idTextnorm
 id ifRoom
 id image
 id imageView
@@ -1341,7 +1340,6 @@ id line3
 id listMode
 id list_item
 id loginButton
-id loginButtonnorm
 id login_but
 id mainContent
 id main_content
@@ -1387,7 +1385,6 @@ id parent
 id parentPanel
 id parent_matrix
 id passwordText
-id passwordTextnorm
 id percent
 id photo
 id pin
@@ -1397,7 +1394,6 @@ id progress_horizontal
 id pwd
 id radio
 id registerButton
-id registerButtonnorm
 id registerButtonreg
 id register_but
 id right
@@ -1426,6 +1422,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selectedAge
+id seller_login
 id sex
 id sexSelection
 id shortcut
@@ -1465,6 +1462,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView2
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1610,6 +1608,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout seller
 layout support_simple_spinner_dropdown_item
 menu activity_main_menu_test_drawer
 menu main_menu_test

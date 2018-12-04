@@ -24,6 +24,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
     private FirebaseFirestore db;
     private FirebaseUser user;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LoginEmailActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        Button seller_login = (Button) findViewById(R.id.seller_login);
+
+        seller_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -156,13 +171,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateUI(FirebaseUser user){
 
+
         if(user != null){
-            Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
-            startActivity(intent);
-            finish();
+
+            DocumentReference docRef = db.collection("Id_collect").document(user.getUid());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            if (document.get("seller")==null) {
+                                Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                            } else {
+                                Intent intent = new Intent(getApplicationContext(), SellerActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }
+                    }
+                }
+            });
+
         }
-
     }
-
-
 }

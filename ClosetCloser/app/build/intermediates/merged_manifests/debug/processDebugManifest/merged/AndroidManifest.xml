@@ -26,6 +26,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme.NoActionBar" >
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -55,11 +56,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.team1.se2018.closetcloser.LoginActivity" />
         <activity android:name="com.team1.se2018.closetcloser.RegisterActivity" />
-        <activity android:name="com.team1.se2018.closetcloser.SellerLoginActivity" />
-        <activity android:name="com.team1.se2018.closetcloser.SellerRegisterActivity" />
         <activity android:name="com.team1.se2018.closetcloser.LoginEmailActivity" />
         <activity android:name="com.team1.se2018.closetcloser.RegisterEmailActivity" />
+        <activity android:name="com.team1.se2018.closetcloser.SellerActivity" />
         <activity
             android:name="com.team1.se2018.closetcloser.MallMenuActivity"
             android:label="@string/title_activity_mall_menu"

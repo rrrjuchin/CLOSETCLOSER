@@ -18,12 +18,6 @@
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <permission
-        android:name="com.team1.se2018.closetcloser.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
-
-    <uses-permission android:name="com.team1.se2018.closetcloser.permission.C2D_MESSAGE" />
-
     <application
         android:allowBackup="true"
         android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
@@ -62,11 +56,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.team1.se2018.closetcloser.LoginActivity" />
         <activity android:name="com.team1.se2018.closetcloser.RegisterActivity" />
-        <activity android:name="com.team1.se2018.closetcloser.SellerLoginActivity" />
-        <activity android:name="com.team1.se2018.closetcloser.SellerRegisterActivity" />
         <activity android:name="com.team1.se2018.closetcloser.LoginEmailActivity" />
         <activity android:name="com.team1.se2018.closetcloser.RegisterEmailActivity" />
+        <activity android:name="com.team1.se2018.closetcloser.SellerActivity" />
         <activity
             android:name="com.team1.se2018.closetcloser.MallMenuActivity"
             android:label="@string/title_activity_mall_menu"
@@ -93,13 +87,18 @@
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
             android:exported="true"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTask"
             android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:exported="false" >
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
@@ -140,8 +139,6 @@
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
-                <category android:name="com.team1.se2018.closetcloser" />
             </intent-filter>
         </receiver>
         <!--
