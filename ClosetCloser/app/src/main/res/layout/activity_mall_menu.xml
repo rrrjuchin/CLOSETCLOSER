@@ -1,52 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_content"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:theme="@style/AppTheme"
     tools:context=".MallMenuActivity">
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
+    <LinearLayout
+        android:padding="5dp"
+        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingRight="70dp"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        >
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/plus"
+            android:onClick="onClick"
+            android:text="상품추가"
             android:layout_weight="1"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            >
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:onClick="onClick"
+            android:id="@+id/btnnamesort"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름순"
+            />
+        <Button
+            android:id="@+id/btncat"
+            android:onClick="onClick"
+            android:text="종류별"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:onClick="onClick"
+            android:id="@+id/btnselect"
+            android:background="@color/colorAccent"
+            android:textColor="#ffffff"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선택"
+            />
 
-            <Spinner
-                android:id="@+id/mallmenuspiner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-        </android.support.v7.widget.Toolbar>
 
-    </android.support.design.widget.AppBarLayout>
+    </LinearLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/container"
+    <LinearLayout
+        android:paddingTop="5dp"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:orientation="horizontal">
 
-</android.support.design.widget.CoordinatorLayout>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="40dp"
+            android:layout_height="33dp"
+            android:layout_weight="1"
+             />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="검색할 맛집을 넣으세요" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:textFilterEnabled="true"
+        android:choiceMode="multipleChoice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

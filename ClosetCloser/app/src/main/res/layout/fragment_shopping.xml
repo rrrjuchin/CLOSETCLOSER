@@ -49,12 +49,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_none"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_centerInParent="false"
-        app:fontFamily="@font/juliussansone" />
 
     <View
         android:layout_width="match_parent"

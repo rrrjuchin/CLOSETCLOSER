@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/btn_wmc"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView_srlist1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="30dp"
+        android:background="@color/colorBlack"
+        android:paddingLeft="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvshopname_sr1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/juliussansone"
+            android:text="쇼핑몰이름" />
+
+        <TextView
+            android:id="@+id/tvitemname_sr1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/juliussansone"
+            android:text="상품이름" />
+
+        <TextView
+            android:id="@+id/tvitemprice_sr1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/juliussansone"
+            android:text="상품가격" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_gotobuy1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/juliussansone"
+        android:text="사러가기"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        />
+</LinearLayout>
