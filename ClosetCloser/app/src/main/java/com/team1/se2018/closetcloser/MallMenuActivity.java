@@ -1,235 +1,116 @@
 package com.team1.se2018.closetcloser;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.content.Context;
-import android.support.v7.widget.ThemedSpinnerAdapter;
-import android.content.res.Resources.Theme;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class MallMenuActivity extends AppCompatActivity {
 
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    Map<String,Object> dataDB = new HashMap<>();
+    SellerManagementAdapter adapter2;
 
-    int tag = 0;
-    String uidDataFrom = "";
-    String mallnameFrom = "";
+    ArrayList<SellerManagement> restlist = new ArrayList<SellerManagement>();
+    ListView listView;
+    final int REST_INFO = 21;
+    final int NEW_REST = 22;
+    Button seldel;
+    EditText et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mall_menu);
-
-        Intent savedData = getIntent();
-        tag = savedData.getIntExtra("tag", 0 );
-        mallnameFrom = savedData.getStringExtra("mallname");
-        if(tag == 1){
-            uidDataFrom = mAuth.getUid();
-            dataDB.put("uid",uidDataFrom);
-            //dataDB.put("mall_name",editmallname);
-            db.collection("Seller").document(mallnameFrom)
-                    .set(dataDB, SetOptions.merge());
-            db.collection("Id_collect").document(uidDataFrom)
-                    .set(dataDB, SetOptions.merge());
-
-        }
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        // Setup spinner
-        Spinner spinner = (Spinner) findViewById(R.id.mallmenuspiner);
-        spinner.setAdapter(new MyAdapter(
-                toolbar.getContext(),
-                new String[]{
-                        "상품조회",
-                        "상품관리",
-                        "로그아웃"
-                }));
-
-        spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+        setTitle("나의 상품");
+        setListView();
+        seldel = (Button) findViewById(R.id.btnselect);
+        et = (EditText) findViewById(R.id.editText);
+        et.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                // When the given dropdown item is selected, show its contents in the
-                // container view.
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                        .commit();
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+            }
+
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_mall_menu, menu);
-        return true;
-    }
-/*
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-*/
-    private void openDialogE4(){
-        new AlertDialog.Builder(this)
-            .setTitle("")
-            .setMessage(R.string.ERROR5)
-            .setPositiveButton(R.string.Confirm, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    //SignOut();
-
+            public void afterTextChanged(Editable s) {
+                String filterText = s.toString();
+                if (filterText.length() > 0) {
+                    listView.setFilterText(filterText);
+                } else {
+                    listView.clearTextFilter();
                 }
-            }).show();
-    }
-    private static class MyAdapter extends ArrayAdapter<String> implements ThemedSpinnerAdapter {
-        private final ThemedSpinnerAdapter.Helper mDropDownHelper;
-
-        public MyAdapter(Context context, String[] objects) {
-            super(context, android.R.layout.simple_list_item_1, objects);
-            mDropDownHelper = new ThemedSpinnerAdapter.Helper(context);
-        }
-
-        @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            View view;
-
-            if (convertView == null) {
-                // Inflate the drop down using the helper's LayoutInflater
-                LayoutInflater inflater = mDropDownHelper.getDropDownViewInflater();
-                view = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
-            } else {
-                view = convertView;
             }
+        });
+    }
 
-            TextView textView = (TextView) view.findViewById(android.R.id.text1);
-            textView.setText(getItem(position));
-            textView.setTextColor(Color.BLACK);
-            return view;
-        }
 
-        @Override
-        public Theme getDropDownViewTheme() {
-            return mDropDownHelper.getDropDownViewTheme();
-        }
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.plus:
+                Intent intent = new Intent(MallMenuActivity.this, Main2Activity.class);
+                startActivityForResult(intent, NEW_REST);
+                break;
 
-        @Override
-        public void setDropDownViewTheme(Theme theme) {
-            mDropDownHelper.setDropDownViewTheme(theme);
+            case R.id.btnnamesort:
+                adapter2.setNameAsc();
+                break;
+            case R.id.btncat:
+                adapter2.setCatAsc();
+                break;
+            case R.id.btnselect:
+                if (seldel.getText().toString().equals("선택")) {
+                    seldel.setText("삭제");
+                    adapter2.showCheckBox();
+                } else {
+                    seldel.setText("선택");
+                    adapter2.deleteitem();
+                }
+
+
+                break;
         }
     }
 
-    private void SignOut(){
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    public void setListView() {
+        listView = (ListView) findViewById(R.id.listview);
+        adapter2 = new SellerManagementAdapter(this, restlist);
+        listView.setAdapter(adapter2);
 
-        mAuth.signOut();
-        Intent registerIntent = new Intent(MallMenuActivity.this, MainActivity.class);
-        MallMenuActivity.this.startActivity(registerIntent);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MallMenuActivity.this, Main3Activity.class);
+                SellerManagement res = restlist.get(position);
+                intent.putExtra("restinfo", res);
+                startActivity(intent);
+            }
+        });
     }
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
 
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == NEW_REST) {
+            if (resultCode == RESULT_OK) {
+                SellerManagement res = data.getParcelableExtra("newrest");
+                restlist.add(res);
+                adapter2.notifyDataSetChanged();
+            }
         }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_mall_menu, container, false);
-            TextView textView123 = (TextView) rootView.findViewById(R.id.tab1);
-
-            if(getArguments().getInt(ARG_SECTION_NUMBER) == 1){
-                System.out.println("상품조회탭에 입장하였습니다");
-                textView123.setText("상품조회탬에 입장하였습니다");
-            }else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
-                System.out.println("상품관탭에 입장하였습니다다");
-                textView123.setText("상품관탬에 입장하였습니다");
-
-            }else if(getArguments().getInt(ARG_SECTION_NUMBER) == 3){
-                System.out.println("로그아웃");
-                textView123.setText("로그아웃에 입장하였습니다");
-                //openDialogE4();
-                //SignOut();
-
-            }return rootView;
-        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
+
+

@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                                 finish();
 
                             } else {
-                                Intent intent = new Intent(getApplicationContext(), SellerActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), MallMenuActivity.class);
                                 startActivity(intent);
                                 finish();
                             }

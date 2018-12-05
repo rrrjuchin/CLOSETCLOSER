@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-public class MCChildFragment3 extends Fragment {
+public class MCChildFragmentOuter extends Fragment {
 
     // TODO: Rename and change types of parameters
-    public static MCChildFragment3 newInstance(String param1, String param2) {
-        MCChildFragment3 fragment = new MCChildFragment3();
+    public static MCChildFragmentOuter newInstance(String param1, String param2) {
+        MCChildFragmentOuter fragment = new MCChildFragmentOuter();
         return fragment;
     }
 
@@ -27,10 +27,10 @@ public class MCChildFragment3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_mcchild3, container, false);
+        View root = inflater.inflate(R.layout.fragment_mcchild, container, false);
 
-        GridView gridView = (GridView)root.findViewById(R.id.grid_view_bottom);
-        gridView.setAdapter(new ImageAdapterTop(this.getActivity()));
+        GridView gridView = (GridView)root.findViewById(R.id.grid_view);
+        gridView.setAdapter(new ImageAdapterOuter(this.getActivity()));
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -57,16 +57,6 @@ public class MCChildFragment3 extends Fragment {
         super.onDetach();
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     if (task.isSuccessful()) {
                                                         // 로그인 성공
                                                         Toast.makeText(LoginActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(getApplicationContext(), SellerActivity.class);
+                                                        Intent intent = new Intent(getApplicationContext(), MallMenuActivity.class);
                                                         startActivity(intent);
                                                         finish();
 

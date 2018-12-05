@@ -9,15 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MyClosetActivity extends Fragment
-        implements MCChildFragment.OnFragmentInteractionListener, MCChildFragment2.OnFragmentInteractionListener{
+        implements MCChildFragmentOuter.OnFragmentInteractionListener, MCChildFragment2.OnFragmentInteractionListener{
 
 
     private OnFragmentInteractionListener mListener;
 
-    final Fragment childFragment = new MCChildFragment();
+    final Fragment childFragment = new MCChildFragmentOuter();
     final Fragment childFragment2 = new MCChildFragment2();
     final Fragment childFragment3 = new MCChildFragment3();
 
@@ -92,7 +91,6 @@ public class MyClosetActivity extends Fragment
         mListener = null;
     }
 
-    @Override
     public void messageFromChildFragment(Uri uri) {
 
     }

@@ -8,13 +8,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class SRChildFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-
+    private ListView mListView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -22,8 +25,21 @@ public class SRChildFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_srchild, container, false);
 
+        mListView = (ListView)rootView.findViewById(R.id.list_view_outer);
+
+        mListView.setAdapter(new ImageAdapterTop(this.getActivity()));
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println("Clicked "+position);
+            }
+        });
+
+
         return rootView;
     }
+
 
     @Override
     public void onAttach(Context context) {

@@ -60,17 +60,6 @@ public class ShoppingActivity extends Fragment
             }
         });
 
-        Button btn_3 = (Button) view.findViewById(R.id.btn_none);
-        btn_3.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-
-                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.srchild_fragment_container, childFragment3).commit();
-            }
-        });
-
 
     }
 

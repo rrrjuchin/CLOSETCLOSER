@@ -23,7 +23,7 @@ public class MainMenuActivity extends AppCompatActivity
         DRChildFragment.OnFragmentInteractionListener,
         DRChildFragment2.OnFragmentInteractionListener,
         DRChildFragment3.OnFragmentInteractionListener,
-        MCChildFragment.OnFragmentInteractionListener,
+        MCChildFragmentOuter.OnFragmentInteractionListener,
         MCChildFragment2.OnFragmentInteractionListener,
         MCChildFragment3.OnFragmentInteractionListener,
         MyClosetActivity.OnFragmentInteractionListener,
