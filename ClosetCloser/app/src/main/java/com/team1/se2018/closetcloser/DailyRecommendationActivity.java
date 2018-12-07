@@ -112,7 +112,7 @@ public class DailyRecommendationActivity extends Fragment
             @Override
             public void onClick(View v) {
                 // get new recommendation
-                
+
             }
         });
 

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class DRChildFragment extends Fragment {
@@ -21,6 +22,13 @@ public class DRChildFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_drchild, container, false);
+
+        ImageView ivOuter = (ImageView)rootView.findViewById(R.id.outer_image);
+        ImageView ivTop = (ImageView)rootView.findViewById(R.id.top_image);
+        ImageView ivBottom = (ImageView)rootView.findViewById(R.id.bottom_image);
+
+
+
 
         return rootView;
     }
@@ -41,7 +49,6 @@ public class DRChildFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

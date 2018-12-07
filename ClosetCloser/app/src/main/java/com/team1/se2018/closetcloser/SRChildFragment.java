@@ -61,4 +61,5 @@ public class SRChildFragment extends Fragment {
         // TODO: Update argument type and name
         void messageFromChildFragment(Uri uri);
     }
+
 }

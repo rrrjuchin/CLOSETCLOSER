@@ -1188,7 +1188,6 @@ font juliussansonereg
 id ALT
 id CTRL
 id FUNCTION
-id LinearLayout2
 id META
 id SHIFT
 id SYM
@@ -1236,14 +1235,15 @@ id automatic
 id barrier
 id beginning
 id blank
+id blank_image
 id blocking
 id bottom
+id bottom_image
 id box_count
 id btnAdd
 id btnCancel
 id btn_ans
 id btn_btmmc
-id btn_gotobuy1
 id btn_otrmc
 id btn_rec1
 id btn_rec2
@@ -1321,7 +1321,6 @@ id etmenu3
 id etname
 id ettel
 id exitUntilCollapsed
-id expListView
 id expand_activities_button
 id expanded_menu
 id fab
@@ -1355,7 +1354,6 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
-id imageView_srlist1
 id imgno
 id info
 id inline
@@ -1365,8 +1363,6 @@ id item_touch_helper_previous_elevation
 id labeled
 id large
 id largeLabel
-id lblListHeader
-id lblListItem
 id left
 id light
 id line1
@@ -1412,6 +1408,7 @@ id notification_main_column
 id notification_main_column_container
 id okbutton
 id open_graph
+id outer_image
 id outline
 id packed
 id page
@@ -1421,7 +1418,6 @@ id parentPanel
 id parent_matrix
 id passwordText
 id percent
-id photo
 id pin
 id plus
 id progress_bar
@@ -1463,6 +1459,7 @@ id selectedAge
 id seller_login
 id sex
 id sexSelection
+id shop_images
 id shortcut
 id showCustom
 id showHome
@@ -1513,6 +1510,7 @@ id todayTextView
 id toolbar
 id top
 id topPanel
+id top_image
 id touch_outside
 id transition_current_scene
 id transition_layout_save
@@ -1522,10 +1520,7 @@ id transition_transform
 id tvRegdate
 id tvTel
 id tvURL
-id tvitemname_sr1
-id tvitemprice_sr1
 id tvname
-id tvshopname_sr1
 id tvtelnum
 id txtname
 id uniform
@@ -1629,7 +1624,6 @@ layout fragment_drchild
 layout fragment_drchild2
 layout fragment_drchild3
 layout fragment_good_feedback_bsd
-layout fragment_lineup
 layout fragment_mall_menu
 layout fragment_mcchild
 layout fragment_mcchild2
@@ -1639,8 +1633,6 @@ layout fragment_shopping
 layout fragment_srchild
 layout fragment_srchild_fragment2
 layout fragment_srchild_fragment3
-layout list_group
-layout list_item
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header_main_menu_test
