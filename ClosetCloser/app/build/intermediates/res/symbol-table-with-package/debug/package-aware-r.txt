@@ -26,7 +26,14 @@ animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array Age
+array bottom
+array category
+array clothes_colors
+array clothes_type
 array mallmenu
+array outer
+array season
+array top
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1261,6 +1268,7 @@ id button2
 id buttonPanel
 id cancel_action
 id cancel_button
+id category
 id center
 id center_horizontal
 id center_vertical
@@ -1272,7 +1280,9 @@ id checkbox3
 id chronometer
 id clip_horizontal
 id clip_vertical
+id close
 id collapseActionView
+id color
 id com_facebook_body_frame
 id com_facebook_button_xout
 id com_facebook_device_auth_instructions
@@ -1331,7 +1341,6 @@ id fill_horizontal
 id fill_vertical
 id filled
 id fixed
-id floatingActionButton
 id forever
 id fragcont_dr
 id fragment_container
@@ -1354,6 +1363,7 @@ id imageView
 id imageView2
 id imageView3
 id imageView4
+id image_view
 id imgno
 id info
 id inline
@@ -1420,6 +1430,7 @@ id passwordText
 id percent
 id pin
 id plus
+id predict
 id progress_bar
 id progress_circular
 id progress_horizontal
@@ -1453,6 +1464,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id season
 id select_dialog_listview
 id selected
 id selectedAge
@@ -1523,10 +1535,13 @@ id tvURL
 id tvname
 id tvtelnum
 id txtname
+id type
 id uniform
 id unknown
 id unlabeled
 id up
+id upload
+id uploadButton
 id useLogo
 id view
 id view_offset_helper
@@ -1597,6 +1612,7 @@ layout activity_restaurant
 layout activity_seller_login
 layout activity_seller_register
 layout activity_srlist_item_view1
+layout activity_upload
 layout app_bar_main_menu_test
 layout com_facebook_activity_layout
 layout com_facebook_device_auth_dialog_fragment

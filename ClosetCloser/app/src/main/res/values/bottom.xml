@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "bottom">
+        <item>category</item>
+        <item>Cotton_Pants</item>
+        <item>Jeans</item>
+        <item>Long_Skirts</item>
+        <item>Short_Pants</item>
+        <item>Short_Jeans</item>
+        <item>Short_Skirts</item>
+        <item>Slacks</item>
+    </string-array>
+</resources>

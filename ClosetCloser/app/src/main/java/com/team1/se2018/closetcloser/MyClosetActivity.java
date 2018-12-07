@@ -1,14 +1,18 @@
 package com.team1.se2018.closetcloser;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class MyClosetActivity extends Fragment
         implements MCChildFragmentOuter.OnFragmentInteractionListener, MCChildFragment2.OnFragmentInteractionListener{
@@ -70,6 +74,15 @@ public class MyClosetActivity extends Fragment
             }
         });
 
+        FloatingActionButton btn_upload = (FloatingActionButton) view.findViewById(R.id.uploadButton);
+        btn_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToUpload();
+
+            }
+        });
+
 
     }
 
@@ -103,5 +116,10 @@ public class MyClosetActivity extends Fragment
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void messageFromParentFragment(Uri uri);
+    }
+
+    public void goToUpload(){
+        Intent intent = new Intent(getActivity(), MyclothesUploadActivity.class);
+        startActivity(intent);
     }
 }

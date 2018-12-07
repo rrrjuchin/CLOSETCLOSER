@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "season">
+        <item>season</item>
+        <item>spring</item>
+        <item>summer</item>
+        <item>fall</item>
+        <item>winter</item>
+    </string-array>
+</resources>

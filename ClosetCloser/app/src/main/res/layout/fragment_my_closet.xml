@@ -76,7 +76,7 @@
         android:paddingBottom="10dp"></FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/uploadButton"
         android:layout_width="87dp"
         android:layout_height="94dp"
         android:layout_alignParentEnd="true"

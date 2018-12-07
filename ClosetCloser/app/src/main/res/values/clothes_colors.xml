@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "clothes_colors">
+        <item>color</item>
+        <item>black</item>
+        <item>beige</item>
+        <item>brown</item>
+        <item>burgundy</item>
+        <item>white</item>
+        <item>purple</item>
+        <item>pink</item>
+        <item>dark_blue</item>
+        <item>turquoise</item>
+        <item>yellow</item>
+        <item>orange</item>
+        <item>green</item>
+        <item>olive_green</item>
+        <item>red</item>
+        <item>grey</item>
+    </string-array>
+</resources>
