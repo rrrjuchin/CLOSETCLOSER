@@ -4,13 +4,19 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-public class MCChildFragment3 extends Fragment {
+public class MCChildFragment3 extends Fragment
+        implements MCChildFragmentItem.OnFragmentInteractionListener {
+
+    private MyClosetActivity.OnFragmentInteractionListener mListener;
+
+    final Fragment childFragment = new MCChildFragmentItem();
 
     // TODO: Rename and change types of parameters
     public static MCChildFragment3 newInstance(String param1, String param2) {
@@ -29,13 +35,17 @@ public class MCChildFragment3 extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_mcchild3, container, false);
 
-        GridView gridView = (GridView)root.findViewById(R.id.grid_view_bottom);
-        gridView.setAdapter(new ImageAdapterTop(this.getActivity()));
+        final GridView gridView = (GridView)root.findViewById(R.id.grid_view_bottom);
+        gridView.setAdapter(new ImageAdapterBottom(this.getActivity()));
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 System.out.println("Clicked "+position);
+
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.mcchild_fragment_container, childFragment).commit();
+                gridView.setVisibility(gridView.GONE);
             }
         });
 
@@ -55,6 +65,11 @@ public class MCChildFragment3 extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
     /**

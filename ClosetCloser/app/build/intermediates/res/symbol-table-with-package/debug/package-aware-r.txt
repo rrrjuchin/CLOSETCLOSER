@@ -1344,6 +1344,7 @@ id fixed
 id forever
 id fragcont_dr
 id fragment_container
+id fragment_mcchild_item
 id ghost_view
 id gone
 id grid_view
@@ -1369,6 +1370,7 @@ id info
 id inline
 id invisible
 id italic
+id itemPic
 id item_touch_helper_previous_elevation
 id labeled
 id large
@@ -1496,6 +1498,7 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id subtitle
 id tab1
 id tab2_welcome
 id tabButtons
@@ -1644,6 +1647,7 @@ layout fragment_mall_menu
 layout fragment_mcchild
 layout fragment_mcchild2
 layout fragment_mcchild3
+layout fragment_mcchild_item
 layout fragment_my_closet
 layout fragment_shopping
 layout fragment_srchild

@@ -48,6 +48,6 @@ public class ImageAdapterTop extends BaseAdapter {
     }
 
     private Integer[] mThumbIds = {
-            R.drawable.ex2,R.drawable.ex4,R.drawable.rec_ex3, R.drawable.rec_ex1
+            R.drawable.logo,R.drawable.right,R.drawable.logo, R.drawable.icon_mycloset, R.drawable.icon_daily
     };
 }

@@ -4,17 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlack"
     >
 
-    <GridView
-        android:id ="@+id/grid_view_bottom"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/colorWhite"
-        android:columnWidth="90dp"
-        android:numColumns="3"
-        android:stretchMode="columnWidth">
-    </GridView>
+    <FrameLayout
+        android:id="@+id/mcchild_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <GridView
+            android:id ="@+id/grid_view_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/colorWhite"
+            android:columnWidth="90dp"
+            android:numColumns="3"
+            android:stretchMode="columnWidth">
+        </GridView>
+
+    </FrameLayout>
 
 </RelativeLayout>
