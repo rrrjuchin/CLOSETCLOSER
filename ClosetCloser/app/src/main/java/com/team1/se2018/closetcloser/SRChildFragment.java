@@ -36,7 +36,6 @@ public class SRChildFragment extends Fragment {
             }
         });
 
-
         return rootView;
     }
 
@@ -57,7 +56,6 @@ public class SRChildFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

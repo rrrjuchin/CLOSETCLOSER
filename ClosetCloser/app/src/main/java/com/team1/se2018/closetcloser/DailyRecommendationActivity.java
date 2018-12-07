@@ -3,6 +3,7 @@ package com.team1.se2018.closetcloser;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -103,6 +104,15 @@ public class DailyRecommendationActivity extends Fragment
             public void onClick(View v) {
                 GoodFeedbackBSD goodFeedbackBSD = GoodFeedbackBSD.getInstance();
                 goodFeedbackBSD.show(getActivity().getSupportFragmentManager(), "bottomSheet");
+            }
+        });
+
+        FloatingActionButton refreshBtn = (FloatingActionButton) view.findViewById(R.id.btn_refresh);
+        refreshBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // get new recommendation
+                
             }
         });
 

@@ -58,8 +58,7 @@ public class SRListItemView1 implements Parcelable
         return in_sr1;
     }
 
-    public String getPrice()
-    {
+    public String getPrice() {
         return price_sr1;
     }
 

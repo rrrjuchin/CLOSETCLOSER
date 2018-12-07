@@ -1248,6 +1248,7 @@ id btn_otrmc
 id btn_rec1
 id btn_rec2
 id btn_rec3
+id btn_refresh
 id btn_topmc
 id btn_wmc
 id btnback
