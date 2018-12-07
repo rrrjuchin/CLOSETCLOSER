@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenuActivity extends AppCompatActivity
@@ -36,6 +37,7 @@ public class MainMenuActivity extends AppCompatActivity
 
     private DrawerLayout drawer;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private LoginManager fblogin = LoginManager.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,6 +129,7 @@ public class MainMenuActivity extends AppCompatActivity
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
+                        fblogin.logOut();
                         mAuth.signOut();
                         Intent i =new Intent(MainMenuActivity.this,MainActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
