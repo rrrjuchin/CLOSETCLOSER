@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BadFeedbackBSD">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:background="@color/colorAccent"
+            android:text="Feedback, please. "
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:fontFamily="@font/juliussansone"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="20dp"
+            android:text="이 스타일을 삭제합니다."
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="15dp"
+            android:text="이 스타일이 왜 마음에 안 드세요...? T^T"
+            android:textSize="18dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 옷들의 조합이 마음에 들지 않아요." />
+
+            <CheckBox
+                android:id="@+id/checkbox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 색 조합이 마음에 들지 않아요." />
+
+            <CheckBox
+                android:id="@+id/checkbox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 계절에 맞지 않아요." />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/okbutton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@color/colorPrimary"
+            android:text="다음 추천에 반영합니다."
+            android:textColor="@color/colorWhite" />
+
+        <View
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

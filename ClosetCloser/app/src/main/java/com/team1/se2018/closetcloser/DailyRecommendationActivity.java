@@ -9,12 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DailyRecommendationActivity extends Fragment
-        implements DRChildFragment.OnFragmentInteractionListener,DRChildFragment2.OnFragmentInteractionListener{
+        implements DRChildFragment.OnFragmentInteractionListener,
+        DRChildFragment2.OnFragmentInteractionListener{
 
-
+    private TextView mTextView;
     private OnFragmentInteractionListener mListener;
 
     final Fragment childFragment = new DRChildFragment();
@@ -84,6 +87,24 @@ public class DailyRecommendationActivity extends Fragment
             }
         });
 
+        // create bottom sheet
+        Button deleteBtn = (Button) view.findViewById(R.id.deleteButton);
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BadFeedbackBSD badFeedbackBSD = BadFeedbackBSD.getInstance();
+                badFeedbackBSD.show(getActivity().getSupportFragmentManager(), "bottomSheet");
+            }
+        });
+
+        FrameLayout feedbackBtn = (FrameLayout) view.findViewById(R.id.drchild_fragment_container);
+        feedbackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GoodFeedbackBSD goodFeedbackBSD = GoodFeedbackBSD.getInstance();
+                goodFeedbackBSD.show(getActivity().getSupportFragmentManager(), "bottomSheet");
+            }
+        });
 
     }
 

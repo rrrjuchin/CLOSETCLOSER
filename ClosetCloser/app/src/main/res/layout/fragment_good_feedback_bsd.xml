@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GoodFeedbackBSD">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:background="@color/colorAccent"
+            android:text="Feedback, please. "
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:fontFamily="@font/juliussansone"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="15dp"
+            android:padding="20dp"
+            android:text="이 스타일이 마음에 드세요? :)"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="네, 마음에 들어요!"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="잘못 탭했어요..."
+            android:background="@color/colorLightGray"/>
+
+        <View
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

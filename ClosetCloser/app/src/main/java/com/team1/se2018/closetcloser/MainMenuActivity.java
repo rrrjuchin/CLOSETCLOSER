@@ -30,7 +30,9 @@ public class MainMenuActivity extends AppCompatActivity
         ShoppingActivity.OnFragmentInteractionListener,
         SRChildFragment.OnFragmentInteractionListener,
         SRChildFragment2.OnFragmentInteractionListener,
-        SRChildFragment3.OnFragmentInteractionListener {
+        SRChildFragment3.OnFragmentInteractionListener,
+        BadFeedbackBSD.BottomSheetListener,
+        GoodFeedbackBSD.BottomSheetListener {
 
     private DrawerLayout drawer;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -101,6 +103,10 @@ public class MainMenuActivity extends AppCompatActivity
 
     }
 
+    @Override
+    public void onButtonClicked(String text) {
+
+    }
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

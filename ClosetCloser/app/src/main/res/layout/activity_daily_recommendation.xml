@@ -42,17 +42,6 @@
         android:layout_alignParentBottom="false"
         android:layout_centerInParent="true">
 
-        <Button
-            android:id="@+id/leftButton"
-            android:layout_width="50dp"
-            android:layout_height="70dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="15dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/left" />
-
 
         <android.support.design.circularreveal.CircularRevealRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/imageView"
@@ -105,16 +94,6 @@
 
         </android.support.design.circularreveal.CircularRevealRelativeLayout>
 
-        <Button
-            android:id="@+id/rightButton"
-            android:layout_width="50dp"
-            android:layout_height="70dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="15dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/right" />
 
         <Button
             android:id="@+id/deleteButton"

@@ -62,6 +62,7 @@ public class SRListItemView1 implements Parcelable
     {
         return price_sr1;
     }
+
     public void setShopName(String snname) {
         this.sn_sr1 = snname;
     }
