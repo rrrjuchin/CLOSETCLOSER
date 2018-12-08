@@ -223,12 +223,14 @@ public class MyclothesUploadActivity extends Activity {
 
                     uploadImage(clothes_path);
 
-                    dataDB.put("type", clothes_type);
                     dataDB.put("category", clothes_category);
                     dataDB.put("color", clothes_color);
                     dataDB.put("img", storageref);
 
-                    db.collection("Usercloset").document(firebaseAuth.getUid()).collection(clothes_season).document().set(dataDB, SetOptions.merge());
+                    String document_Path = clothes_season + "__" + clothes_type;
+
+
+                    db.collection("Usercloset").document(firebaseAuth.getUid()).collection(document_Path).document().set(dataDB, SetOptions.merge());
 
 
                     season.setSelection(0);

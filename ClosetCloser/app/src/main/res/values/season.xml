@@ -2,9 +2,8 @@
 <resources>
     <string-array name = "season">
         <item>season</item>
-        <item>spring</item>
+        <item>spring_fall</item>
         <item>summer</item>
-        <item>fall</item>
         <item>winter</item>
     </string-array>
 </resources>

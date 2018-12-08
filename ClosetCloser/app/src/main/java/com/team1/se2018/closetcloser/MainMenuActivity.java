@@ -151,6 +151,7 @@ public class MainMenuActivity extends AppCompatActivity
                         Intent i =new Intent(MainMenuActivity.this,MainActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(i);
+                        finish();
                     }
                 })
                 .setNegativeButton("취소", new DialogInterface.OnClickListener() {

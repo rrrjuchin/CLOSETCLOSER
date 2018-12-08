@@ -174,23 +174,20 @@ public class MainActivity extends AppCompatActivity {
 
         if(user != null){
 
-            DocumentReference docRef = db.collection("Id_collect").document(user.getUid());
+            DocumentReference docRef = db.collection("Sellermem").document(user.getUid());
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
-                            if (document.get("seller")==null) {
-                                Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
-                                startActivity(intent);
-                                finish();
-
-                            } else {
-                                Intent intent = new Intent(getApplicationContext(), MallMenuActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
+                            Intent intent = new Intent(getApplicationContext(), MallMenuActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
                     }
                 }

@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -52,26 +54,24 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-
-                                    db.collection("Sellermem")
-                                            .get()
-                                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                                    if (task.isSuccessful()) {
-                                                        // 로그인 성공
-                                                        Toast.makeText(LoginActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(getApplicationContext(), MallMenuActivity.class);
-                                                        startActivity(intent);
-                                                        finish();
-
-                                                    }
+                                    final FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                                    DocumentReference docRef = db.collection("Sellermem").document(currentUser.getUid());
+                                    docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot document = task.getResult();
+                                                if (document.exists()) {
+                                                    Toast.makeText(LoginActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(getApplicationContext(), MallMenuActivity.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                } else {
+                                                    Toast.makeText(LoginActivity.this, R.string.failed_login, Toast.LENGTH_SHORT).show();
                                                 }
-                                            });
-
-                                } else {
-                                    // 로그인 실패
-                                    Toast.makeText(LoginActivity.this, R.string.failed_login, Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
                                 }
                             }
                         });
