@@ -62,26 +62,14 @@
                     android:id="@+id/radio1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="68dp"
-                    android:src="@drawable/chicken" />
                 <RadioButton
                     android:id="@+id/radio2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="68dp"
-                    android:src="@drawable/pizza" />
                 <RadioButton
                     android:id="@+id/radio3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="68dp"
-                    android:src="@drawable/hamburger" />
             </RadioGroup>
         </TableRow>
         <TableRow android:padding="3dp">
