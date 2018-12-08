@@ -6,22 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp"
-        android:layout_alignRight="@id/tabButtons"
-        android:background="@drawable/edit_button"
-        android:text="Edit" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/button"
         android:layout_marginTop="15dp"
         android:paddingBottom="7dp"
         android:paddingLeft="6dp"
@@ -30,30 +19,30 @@
         android:id="@+id/tabButtons">
 
         <Button
-            android:id="@+id/btn_otrmc"
+            android:id="@+id/btn_spring_fallmc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="Outer"
+            android:text="Spring/Fall"
             android:textSize="14dp" />
 
         <Button
-            android:id="@+id/btn_topmc"
+            android:id="@+id/btn_summermc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="Top"
+            android:text="Summer"
             android:textSize="14dp" />
 
         <Button
-            android:id="@+id/btn_btmmc"
+            android:id="@+id/btn_wintermc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="Bottom"
+            android:text="WINTER"
             android:textSize="14dp" />
 
     </LinearLayout>
