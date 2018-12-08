@@ -1269,6 +1269,8 @@ id button111
 id button2
 id button222
 id buttonPanel
+id button_choose_image
+id button_upload
 id cancel_action
 id cancel_button
 id category
@@ -1321,6 +1323,7 @@ id drawer_layout
 id drchild_fragment_container
 id editText
 id edit_query
+id edit_text_file_name
 id editselleritemname
 id editselleritemprice
 id editselleritemurl
@@ -1440,6 +1443,7 @@ id pin
 id plus
 id predict
 id progress_bar
+id progress_circle
 id progress_circular
 id progress_horizontal
 id pwd
@@ -1447,6 +1451,7 @@ id radio
 id radio1
 id radio2
 id radio3
+id recycler_view
 id registerButton
 id registerButtonreg
 id register_but
@@ -1523,6 +1528,7 @@ id textView6
 id textView7
 id textView8
 id text_input_password_toggle
+id text_view_show_uploads
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -1624,6 +1630,9 @@ layout activity_restaurant
 layout activity_seller_login
 layout activity_seller_register
 layout activity_srlist_item_view1
+layout activity_test_image_adapter
+layout activity_test_images
+layout activity_test_main
 layout activity_upload
 layout app_bar_main_menu_test
 layout com_facebook_activity_layout
