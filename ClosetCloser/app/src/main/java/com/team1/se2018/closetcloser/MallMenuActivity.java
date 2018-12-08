@@ -59,8 +59,14 @@ public class MallMenuActivity extends AppCompatActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.plus:
-                Intent intent = new Intent(MallMenuActivity.this, Main2Activity.class);
-                startActivityForResult(intent, NEW_REST);
+                System.out.println("??");
+
+                Intent intent = new Intent(MallMenuActivity.this, SellerAddItem.class);
+                System.out.println("!!");
+                startActivity(intent);
+                finish();
+                System.out.println("wow");
+
                 break;
 
             case R.id.btnnamesort:
