@@ -73,7 +73,7 @@ public class SRChildFragment extends Fragment implements SRImageAdapter.OnItemCl
         mAdapter.setOnItemClickListener(SRChildFragment.this);
         mStorage = FirebaseStorage.getInstance();
         String uid = firebaseUser.getUid();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users/"+uid);
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid+"/winter");
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + mDatabaseRef);
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
