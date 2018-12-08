@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/btn_wmc"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+
+
+        <LinearLayout
+            android:id="@+id/shop_images"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/codi_image_outer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/codi_image_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/codi_image_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shop_images"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mallname_sr2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="쇼핑몰 이름" />
+
+            <TextView
+                android:id="@+id/itemname_sr2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상품 이름" />
+
+
+            <TextView
+                android:id="@+id/itemprice_sr2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상품 가격" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/redirect_shop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/shop_images"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edit_button"
+            android:text="사러 가기" />
+
+    </RelativeLayout>
+</LinearLayout>

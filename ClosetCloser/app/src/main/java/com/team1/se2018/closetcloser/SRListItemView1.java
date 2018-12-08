@@ -1,76 +1,89 @@
 package com.team1.se2018.closetcloser;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-/**
- * Created by guswn_000 on 2017-04-06.
- */
+import java.net.URL;
 
-public class SRListItemView1 implements Parcelable
-{
-    private String sn_sr1;
-    private String in_sr1;
-    private String price_sr1;
+public class SRListItemView1 extends LinearLayout {
+    ImageView itemImage;
+    ImageView codiImageOuter;
+    ImageView codiImageTop;
+    ImageView codiImageBottom;
+    TextView mallName;
+    TextView itemName;
+    TextView itemPrice;
+    Button gotoShop;
 
-    public SRListItemView1(String sn_sr1, String in_sr1, String price_sr1)
-    {
-        this.sn_sr1 = sn_sr1;
-        this.in_sr1 = in_sr1;
-        this.price_sr1 = price_sr1;
+    public SRListItemView1 (Context context) {
+        super(context);
+        init(context);
     }
 
-    protected SRListItemView1(Parcel in) {
-        sn_sr1 = in.readString();
-        in_sr1 = in.readString();
-        price_sr1 = in.readString();
+    public SRListItemView1 (Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        init(context);
     }
 
-    public static final Creator<SellerManagement> CREATOR = new Creator<SellerManagement>() {
-        @Override
-        public SellerManagement createFromParcel(Parcel in) {
-            return new SellerManagement(in);
-        }
+    private void init(Context context) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater.inflate(R.layout.activity_srlist_item_view1, this, true);
 
-        @Override
-        public SellerManagement[] newArray(int size) {
-            return new SellerManagement[size];
-        }
-    };
+        itemImage = (ImageView) findViewById(R.id.item_image);
+        codiImageOuter = (ImageView) findViewById(R.id.codi_image_outer);
+        codiImageTop = (ImageView) findViewById(R.id.codi_image_top);
+        codiImageBottom = (ImageView) findViewById(R.id.codi_image_bottom);
+        mallName = (TextView) findViewById(R.id.mallname_sr1);
+        itemName = (TextView) findViewById(R.id.itemname_sr1);
+        itemPrice = (TextView) findViewById(R.id.itemprice_sr1);
+        gotoShop = (Button) findViewById(R.id.redirect_shop);
 
-    @Override
-    public int describeContents() {
-        return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(sn_sr1);
-        dest.writeString(in_sr1);
-        dest.writeString(price_sr1);
+    public void setItemImage(Bitmap item_image_resID) {
+        itemImage.setImageBitmap(item_image_resID);
     }
 
-    public String getShopName() {
-        return sn_sr1;
+    public void setCodiImageOuter(Bitmap codi_image_outer_resID) {
+        codiImageOuter.setImageBitmap(codi_image_outer_resID);
     }
 
-    public String getItemName() {
-        return in_sr1;
+    public void setCodiImageTop(Bitmap codi_image_top_resID) {
+        codiImageTop.setImageBitmap(codi_image_top_resID);
     }
 
-    public String getPrice() {
-        return price_sr1;
+    public void setCodiImageBottom(Bitmap codi_image_bottom_resID) {
+        codiImageBottom.setImageBitmap(codi_image_bottom_resID);
     }
 
-    public void setShopName(String snname) {
-        this.sn_sr1 = snname;
+    public void setMallName(String mall_name) {
+        mallName.setText(mall_name);
     }
 
-    public void setItemName(String itemName) {
-        this.in_sr1 = itemName;
+    public void setItemName(String item_name) {
+        itemName.setText(item_name);
     }
 
-    public void setPrice(String price) {
-        this.price_sr1 = price;
+    public void setItemPrice(String item_price) {
+        itemPrice.setText(item_price);
     }
+
+    public void setGotoShop(URL url) {
+        gotoShop.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // redirect to shopping mall
+
+            }
+        });
+    }
+
 }

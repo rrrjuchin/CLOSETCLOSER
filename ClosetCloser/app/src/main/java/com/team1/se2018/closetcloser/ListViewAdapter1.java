@@ -4,10 +4,12 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+
+import java.util.ArrayList;
 
 public class ListViewAdapter1 extends BaseAdapter {
 
+    ArrayList<SRListItem1> items = new ArrayList<>();
     private Context mContext;
 
     public ListViewAdapter1(Context c){
@@ -16,38 +18,57 @@ public class ListViewAdapter1 extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mThumbIds.length;
+        return items.size();
+    }
+
+    public void addItem(SRListItem1 item){
+        items.add(item);
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return items.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ImageView imageView;
+        SRListItemView1 view;
 
         if(convertView == null){
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(350,350));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8,8,8,8);
+            view  = new SRListItemView1(mContext);
+
+//            imageView.setLayoutParams(new ViewGroup.LayoutParams(350,350));
+//            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            imageView.setPadding(8,8,8,8);
+
         }else{
-            imageView = (ImageView) convertView;
+            view = (SRListItemView1) convertView;
         }
 
-        imageView.setImageResource(mThumbIds[position]);
-        return imageView;
+        SRListItem1 item = items.get(position);
+
+        view.setItemImage(item.getItemimage_sr1());
+        view.setCodiImageOuter(item.getCodiimageouter_sr1());
+        view.setCodiImageTop(item.getCodiimagetop_sr1());
+        view.setCodiImageBottom(item.getCodiimagebottom_sr1());
+        view.setMallName(item.getShopName());
+        view.setItemName(item.getItemName());
+        view.setItemPrice(item.getPrice());
+        //view.gotoShop();
+
+        //imageView.setImageResource(mThumbIds[position]);
+
+        return view;
     }
 
-    private Integer[] mThumbIds = {
-            R.drawable.logo,R.drawable.right,R.drawable.logo, R.drawable.icon_mycloset, R.drawable.icon_daily
-    };
+//    private Integer[] mThumbIds = {
+//            R.drawable.logo,R.drawable.right,R.drawable.logo, R.drawable.icon_mycloset, R.drawable.icon_daily
+//    };
+
 }

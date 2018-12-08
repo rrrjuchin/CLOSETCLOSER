@@ -1286,6 +1286,9 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id close
+id codi_image_bottom
+id codi_image_outer
+id codi_image_top
 id collapseActionView
 id color
 id com_facebook_body_frame
@@ -1374,13 +1377,19 @@ id imageView
 id imageView2
 id imageView3
 id image_view
+id image_view_upload
 id imgno
 id info
 id inline
 id invisible
 id italic
 id itemPic
+id item_image
 id item_touch_helper_previous_elevation
+id itemname_sr1
+id itemname_sr2
+id itemprice_sr1
+id itemprice_sr2
 id labeled
 id large
 id largeLabel
@@ -1400,6 +1409,8 @@ id mallemail
 id mallemailText
 id mallname
 id mallnameText
+id mallname_sr1
+id mallname_sr2
 id mallpass
 id mallpassText
 id mallregisterButton
@@ -1452,6 +1463,7 @@ id radio1
 id radio2
 id radio3
 id recycler_view
+id redirect_shop
 id registerButton
 id registerButtonreg
 id register_but
@@ -1528,6 +1540,7 @@ id textView6
 id textView7
 id textView8
 id text_input_password_toggle
+id text_view_name
 id text_view_show_uploads
 id textinput_counter
 id textinput_error
@@ -1630,6 +1643,7 @@ layout activity_restaurant
 layout activity_seller_login
 layout activity_seller_register
 layout activity_srlist_item_view1
+layout activity_srlist_item_view2
 layout activity_test_image_adapter
 layout activity_test_images
 layout activity_test_main
@@ -1694,6 +1708,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout seller
 layout support_simple_spinner_dropdown_item
+layout test_image_item
 menu activity_main_menu_test_drawer
 menu main_menu_test
 menu menu_category
