@@ -21,7 +21,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="65dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:gravity="center_horizontal"
@@ -61,11 +61,7 @@
         android:fontFamily="@font/juliussansone"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/seller_login"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:text="seller login"/>
+
     </LinearLayout>
 
 

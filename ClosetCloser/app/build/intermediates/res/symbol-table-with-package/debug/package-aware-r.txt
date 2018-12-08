@@ -1250,14 +1250,14 @@ id box_count
 id btnAdd
 id btnCancel
 id btn_ans
-id btn_btmmc
-id btn_otrmc
 id btn_rec1
 id btn_rec2
 id btn_rec3
 id btn_refresh
 id btn_regselleritem
-id btn_topmc
+id btn_spring_fallmc
+id btn_summermc
+id btn_wintermc
 id btn_wmc
 id btnback
 id btncat
@@ -1493,7 +1493,6 @@ id season
 id select_dialog_listview
 id selected
 id selectedAge
-id seller_login
 id selleritemname
 id sex
 id sexSelection
@@ -1630,7 +1629,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_daily_recommendation
-layout activity_login
 layout activity_loginemail
 layout activity_main
 layout activity_main2
@@ -1707,6 +1705,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout seller
+layout sr_image_item
 layout support_simple_spinner_dropdown_item
 layout test_image_item
 menu activity_main_menu_test_drawer

@@ -58,16 +58,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button seller_login = (Button) findViewById(R.id.seller_login);
-
-        seller_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         firebaseAuth = FirebaseAuth.getInstance();
         callbackManager = CallbackManager.Factory.create();
@@ -171,27 +161,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateUI(FirebaseUser user){
 
-
         if(user != null){
 
-            DocumentReference docRef = db.collection("Sellermem").document(user.getUid());
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            Intent intent = new Intent(getApplicationContext(), MallMenuActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    }
-                }
-            });
+            Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+            startActivity(intent);
+            finish();
+
 
         }
     }

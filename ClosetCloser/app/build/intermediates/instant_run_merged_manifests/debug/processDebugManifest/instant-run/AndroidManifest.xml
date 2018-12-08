@@ -59,7 +59,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.team1.se2018.closetcloser.LoginActivity" />
         <activity android:name="com.team1.se2018.closetcloser.RegisterActivity" />
         <activity android:name="com.team1.se2018.closetcloser.LoginEmailActivity" />
         <activity android:name="com.team1.se2018.closetcloser.RegisterEmailActivity" />

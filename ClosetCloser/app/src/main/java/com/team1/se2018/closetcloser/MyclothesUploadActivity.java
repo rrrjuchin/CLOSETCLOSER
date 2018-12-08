@@ -135,12 +135,16 @@ public class MyclothesUploadActivity extends Activity {
 
     private Bitmap img;
     private String[] predict_result;
+    private TransactionClass transaction;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
+
+        transaction = new TransactionClass();
+
         staticuid = UUID.randomUUID().toString();
         mStorageRef = FirebaseStorage.getInstance().getReference("user");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("user");
@@ -300,14 +304,21 @@ public class MyclothesUploadActivity extends Activity {
                     } else {
                         Toast.makeText(MyclothesUploadActivity.this, "No file selected", Toast.LENGTH_SHORT).show();
                     }
+
+
                     uploadImage(clothes_path);
 
-                    dataDB.put("type", clothes_type);
                     dataDB.put("category", clothes_category);
                     dataDB.put("color", clothes_color);
                     dataDB.put("img", storageref);
+
+                    String document_Path = clothes_season + "__" + clothes_type;
+                    String new_path = clothes_category + "__" + UUID.randomUUID();
+
                     saveseason = clothes_season;
-                    db.collection("Usercloset").document(firebaseAuth.getUid()).collection(clothes_season).document().set(dataDB, SetOptions.merge());
+
+                    db.collection("Usercloset").document(firebaseAuth.getUid()).collection(document_Path).document(new_path).set(dataDB, SetOptions.merge());
+                    transaction.getmyClothes(clothes_season, clothes_type, clothes_category, clothes_color, new_path);
 
 
                     season.setSelection(0);
