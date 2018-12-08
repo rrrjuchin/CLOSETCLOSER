@@ -3,10 +3,9 @@ package com.team1.se2018.closetcloser;
 import com.google.firebase.database.Exclude;
 
 public class Upload {
-    private String mName;
     private String mImageUrl;
+    private String mName;
     private String mKey;
-    private String mUid;
 
     public Upload() {
         //empty constructor needed

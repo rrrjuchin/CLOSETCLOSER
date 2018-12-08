@@ -62,12 +62,56 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.webkit.MimeTypeMap;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import static com.google.common.io.Files.getFileExtension;
 
 public class MyclothesUploadActivity extends Activity {
 
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private EditText mEditTextFileName;
+    private Uri mImageUri;
+    private StorageReference mStorageRef;
+    private DatabaseReference mDatabaseRef;
+    private StorageTask mUploadTask;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
     private String SERVER_URL = "http://54.180.112.26/upload.php";
     private int MY_SOCKET_TIMEOUT_MS = 50000;
-
+    private String saveseason;
+    private String staticuid;
     private String clothes_season = null;
     private String clothes_type = null;
     private String clothes_category = null;
@@ -80,8 +124,6 @@ public class MyclothesUploadActivity extends Activity {
     private Spinner category;
     private Spinner color;
 
-    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Map<String,Object> dataDB = new HashMap<>();
 
@@ -99,7 +141,9 @@ public class MyclothesUploadActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
-
+        staticuid = UUID.randomUUID().toString();
+        mStorageRef = FirebaseStorage.getInstance().getReference("user");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("user");
         season = (Spinner) findViewById(R.id.season);
         type = (Spinner) findViewById(R.id.type);
         category = (Spinner) findViewById(R.id.category);
@@ -132,7 +176,6 @@ public class MyclothesUploadActivity extends Activity {
                                        int position, long id) {
                 String str = (String) season.getSelectedItem();
                 clothes_season = str;
-
             }
 
             @Override
@@ -220,17 +263,51 @@ public class MyclothesUploadActivity extends Activity {
         upload_button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 if(!(clothes_path==null) && !clothes_season.equals(season.getItemAtPosition(0)) && !clothes_type.equals(type.getItemAtPosition(0)) && !clothes_category.equals(category.getItemAtPosition(0)) && !clothes_color.equals(color.getItemAtPosition(0))){
+                    Log.e("please_come_on2",clothes_season);
+                    //saveseason = clothes_season;
+                    if (clothes_path != null) {
+                        final StorageReference fileReference = mStorageRef.child(firebaseUser.getUid() + '/' + System.currentTimeMillis()
+                                + "." + getFileExtension(clothes_path));
+                        final Uri[] downloadUri = new Uri[1];
 
+                        mUploadTask = fileReference.putFile(clothes_path)
+                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                        Handler handler = new Handler();
+                                        //                            StorageReference upimgref = mStorageRef.;
+                                        Toast.makeText(MyclothesUploadActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
+
+                                        Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                                        while (!urlTask.isSuccessful());
+                                        String str2 = staticuid;
+                                        Uri downloadUrl = urlTask.getResult();
+                                        Upload upload = new Upload(str2,downloadUrl.toString());
+                                        String uploadId = mDatabaseRef.push().getKey();
+
+                                            uploadId = firebaseUser.getUid() + "/" + saveseason + "/" + str2;
+
+                                        Log.e("please_come_on",saveseason);
+                                        mDatabaseRef.child(uploadId).setValue(upload);
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(MyclothesUploadActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    } else {
+                        Toast.makeText(MyclothesUploadActivity.this, "No file selected", Toast.LENGTH_SHORT).show();
+                    }
                     uploadImage(clothes_path);
 
+                    dataDB.put("type", clothes_type);
                     dataDB.put("category", clothes_category);
                     dataDB.put("color", clothes_color);
                     dataDB.put("img", storageref);
-
-                    String document_Path = clothes_season + "__" + clothes_type;
-
-
-                    db.collection("Usercloset").document(firebaseAuth.getUid()).collection(document_Path).document().set(dataDB, SetOptions.merge());
+                    saveseason = clothes_season;
+                    db.collection("Usercloset").document(firebaseAuth.getUid()).collection(clothes_season).document().set(dataDB, SetOptions.merge());
 
 
                     season.setSelection(0);
@@ -322,7 +399,11 @@ public class MyclothesUploadActivity extends Activity {
         });
 
     }
-
+    private String getFileExtension(Uri uri) {
+        ContentResolver cR = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(uri));
+    }
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
 
@@ -359,6 +440,7 @@ public class MyclothesUploadActivity extends Activity {
 
                     String imagePath = getRealPathFromURI(clothes_path); // path 경로
                     ExifInterface exif = null;
+                    Log.e("please_help",imagePath);
                     try {
                         exif = new ExifInterface(imagePath);
                     } catch (IOException e) {
@@ -393,10 +475,10 @@ public class MyclothesUploadActivity extends Activity {
 
             storage = FirebaseStorage.getInstance("gs://closet-closer.appspot.com/");
             storageReference = storage.getReference();
-            storageref = "user/"+ firebaseUser.getUid() + "/"+ clothes_season + "/" + UUID.randomUUID().toString();
+            storageref = "user/"+ firebaseUser.getUid() + "/"+ clothes_season + "/" + staticuid;
 
             StorageReference ref = storageReference.child(storageref);
-            Log.d("saveme", "user/"+ UUID.randomUUID().toString());
+            Log.d("saveme", "user/"+ staticuid);
             Log.d("saveme", filePath.toString());
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -594,4 +676,3 @@ public class MyclothesUploadActivity extends Activity {
     }
 
 }
-

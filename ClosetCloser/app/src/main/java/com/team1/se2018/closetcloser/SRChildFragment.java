@@ -1,62 +1,142 @@
 package com.team1.se2018.closetcloser;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 
-public class SRChildFragment extends Fragment {
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
-    private OnFragmentInteractionListener mListener;
-    private ListView mListView;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SRChildFragment extends Fragment implements SRImageAdapter.OnItemClickListener {
+
+    private RecyclerView mRecyclerView;
+    private SRImageAdapter mAdapter;
+    private ProgressBar mProgressCircle;
+    private FirebaseStorage mStorage;
+    private DatabaseReference mDatabaseRef;
+    private ValueEventListener mDBListener;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+    private List<Upload> mUploads;
+    private Bitmap imgdwn;
+    private String upld;
+
+
+    // TODO: Rename and change types of parameters
+    public static SRChildFragment newInstance(String param1, String param2) {
+        SRChildFragment fragment = new SRChildFragment();
+        return fragment;
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
-        View rootView = inflater.inflate(R.layout.fragment_srchild, container, false);
-        mListView = (ListView)rootView.findViewById(R.id.list_view_outer);
-        ListViewAdapter1 lvAdapter1 = new ListViewAdapter1(this.getActivity());
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View root = inflater.inflate(R.layout.activity_test_images, container, false);
 
-        // get information of items
-        SRListItem1 item1 = new SRListItem1("무신사스토어", "레터링맨투맨", "57000원",
-                BitmapFactory.decodeResource(getResources(), R.drawable.pizza),
-                BitmapFactory.decodeResource(getResources(), R.drawable.chicken),
-                BitmapFactory.decodeResource(getResources(), R.drawable.chicken),
-                BitmapFactory.decodeResource(getResources(), R.drawable.chicken));
-        lvAdapter1.addItem(item1);
-        lvAdapter1.addItem(item1);
-        lvAdapter1.addItem(item1);
+        mRecyclerView = root.findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        mProgressCircle = root.findViewById(R.id.progress_circle);
+        mUploads = new ArrayList<>();
+        mAdapter = new SRImageAdapter(SRChildFragment.this, mUploads);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(SRChildFragment.this);
+        mStorage = FirebaseStorage.getInstance();
+        String uid = firebaseUser.getUid();
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users/"+uid);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + mDatabaseRef);
+        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mUploads.clear();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Upload upload = postSnapshot.getValue(Upload.class);
+                    upload.setKey(postSnapshot.getKey());
+                    upld =  upload.getImageUrl();
+                    mUploads.add(upload);
+                }
+                mAdapter.notifyDataSetChanged();
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+        });
+        return root;
+    }
 
-        mListView.setAdapter(lvAdapter1);
-
-        return rootView;
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+    }
+
+
+    @Override
+    public void onItemClick(int position) {
+    }
+
+    @Override
+    public void onWhatEverClick(int position) {
+
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+        Upload selectedItem = mUploads.get(position);
+        final String selectedKey = selectedItem.getKey();
+
+        StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
+        imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                mDatabaseRef.child(selectedKey).removeValue();
+
+            }
+        });
     }
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void messageFromChildFragment(Uri uri);
+        void onFragmentInteraction(Uri uri);
     }
-
 }

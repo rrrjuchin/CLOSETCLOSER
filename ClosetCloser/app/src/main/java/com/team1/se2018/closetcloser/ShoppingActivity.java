@@ -81,10 +81,6 @@ public class ShoppingActivity extends Fragment
         mListener = null;
     }
 
-    @Override
-    public void messageFromChildFragment(Uri uri) {
-
-    }
 
     @Override
     public void onFragmentInteraction(Uri uri) {

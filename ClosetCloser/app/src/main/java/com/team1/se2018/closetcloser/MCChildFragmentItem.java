@@ -26,9 +26,6 @@ public class MCChildFragmentItem extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_mcchild_item, container, false);
-
-
-
         return root;
     }
 

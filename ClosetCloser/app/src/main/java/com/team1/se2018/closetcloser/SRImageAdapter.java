@@ -12,16 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
-public class TestImageAdapter extends RecyclerView.Adapter<TestImageAdapter.ImageViewHolder> {
+public class SRImageAdapter extends RecyclerView.Adapter<SRImageAdapter.ImageViewHolder> {
     private Context mContext;
     private List<Upload> mUploads;
     private OnItemClickListener mListener;
     private Fragment mFragment;
 
-    public TestImageAdapter(Fragment fragment, List<Upload> uploads) {
+    public SRImageAdapter(Fragment fragment, List<Upload> uploads) {
         //mContext = context;
         mFragment = fragment;
         mUploads = uploads;
@@ -30,14 +32,14 @@ public class TestImageAdapter extends RecyclerView.Adapter<TestImageAdapter.Imag
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(mFragment.getActivity()).inflate(R.layout.test_image_item, parent, false);
+        View v = LayoutInflater.from(mFragment.getActivity()).inflate(R.layout.activity_srlist_item_view1, parent, false);
         return new ImageViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
-        //holder.textViewName.setText(uploadCurrent.getName());
+        holder.textViewName.setText(uploadCurrent.getName());
         Picasso.with(mFragment.getActivity())
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
@@ -53,14 +55,14 @@ public class TestImageAdapter extends RecyclerView.Adapter<TestImageAdapter.Imag
 
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
-        //public TextView textViewName;
+        public TextView textViewName;
         public ImageView imageView;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
 
-            //textViewName = itemView.findViewById(R.id.text_view_name);
-            imageView = itemView.findViewById(R.id.image_view_upload);
+            textViewName = itemView.findViewById(R.id.itemname_sr1);
+            imageView = itemView.findViewById(R.id.item_image);
 
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);

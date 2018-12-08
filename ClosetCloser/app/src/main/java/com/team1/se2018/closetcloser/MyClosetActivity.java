@@ -40,7 +40,7 @@ public class MyClosetActivity extends Fragment
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        Button btn_rec1 = (Button) view.findViewById(R.id.btn_otrmc);
+        Button btn_rec1 = (Button) view.findViewById(R.id.btn_spring_fallmc);
         btn_rec1.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -52,7 +52,7 @@ public class MyClosetActivity extends Fragment
             }
         });
 
-        Button btn_rec2 = (Button) view.findViewById(R.id.btn_topmc);
+        Button btn_rec2 = (Button) view.findViewById(R.id.btn_summermc);
         btn_rec2.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -63,7 +63,7 @@ public class MyClosetActivity extends Fragment
             }
         });
 
-        Button btn_rec3 = (Button) view.findViewById(R.id.btn_btmmc);
+        Button btn_rec3 = (Button) view.findViewById(R.id.btn_wintermc);
         btn_rec3.setOnClickListener(new View.OnClickListener(){
 
             @Override

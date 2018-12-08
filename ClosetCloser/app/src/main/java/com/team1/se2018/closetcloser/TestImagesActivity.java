@@ -1,5 +1,6 @@
 package com.team1.se2018.closetcloser;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,7 +23,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestImagesActivity extends AppCompatActivity implements TestImageAdapter.OnItemClickListener {
+public class TestImagesActivity extends Fragment{
     private RecyclerView mRecyclerView;
     private TestImageAdapter mAdapter;
 
@@ -34,7 +35,7 @@ public class TestImagesActivity extends AppCompatActivity implements TestImageAd
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
     private List<Upload> mUploads;
-
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,12 @@ public class TestImagesActivity extends AppCompatActivity implements TestImageAd
         mAdapter.setOnItemClickListener(TestImagesActivity.this);
 
         mStorage = FirebaseStorage.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users" + "/" + firebaseUser.getUid());
+
+        String uid = firebaseUser.getUid();
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users/"+uid);
+
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + mDatabaseRef);
 
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -76,7 +82,6 @@ public class TestImagesActivity extends AppCompatActivity implements TestImageAd
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(TestImagesActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
@@ -84,12 +89,12 @@ public class TestImagesActivity extends AppCompatActivity implements TestImageAd
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(this, "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onWhatEverClick(int position) {
-        Toast.makeText(this, "Whatever click at position: " + position, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -102,14 +107,18 @@ public class TestImagesActivity extends AppCompatActivity implements TestImageAd
             @Override
             public void onSuccess(Void aVoid) {
                 mDatabaseRef.child(selectedKey).removeValue();
-                Toast.makeText(TestImagesActivity.this, "Item deleted", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
-    }
+    }*/
 }
+
+
+
+

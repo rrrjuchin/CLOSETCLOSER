@@ -5,22 +5,49 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ProgressBar;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MCChildFragment3 extends Fragment
-        implements MCChildFragmentItem.OnFragmentInteractionListener {
+        implements MCChildFragmentItem.OnFragmentInteractionListener , TestImageAdapter.OnItemClickListener {
 
     private MyClosetActivity.OnFragmentInteractionListener mListener;
 
     final Fragment childFragment = new MCChildFragmentItem();
 
+    private RecyclerView mRecyclerView;
+    private TestImageAdapter mAdapter;
+
+    private ProgressBar mProgressCircle;
+
+    private FirebaseStorage mStorage;
+    private DatabaseReference mDatabaseRef;
+    private ValueEventListener mDBListener;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+    private List<Upload> mUploads;
+
     // TODO: Rename and change types of parameters
-    public static MCChildFragment3 newInstance(String param1, String param2) {
-        MCChildFragment3 fragment = new MCChildFragment3();
+    public static MCChildFragmentOuter newInstance(String param1, String param2) {
+        MCChildFragmentOuter fragment = new MCChildFragmentOuter();
         return fragment;
     }
 
@@ -33,19 +60,50 @@ public class MCChildFragment3 extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_mcchild3, container, false);
+        View root = inflater.inflate(R.layout.activity_test_images, container, false);
 
-        final GridView gridView = (GridView)root.findViewById(R.id.grid_view_bottom);
-        gridView.setAdapter(new ImageAdapterBottom(this.getActivity()));
+        mRecyclerView = root.findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mProgressCircle = root.findViewById(R.id.progress_circle);
+
+        mUploads = new ArrayList<>();
+
+        mAdapter = new TestImageAdapter(MCChildFragment3.this, mUploads);
+
+        mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClickListener(MCChildFragment3.this);
+
+        mStorage = FirebaseStorage.getInstance();
+
+        String uid = firebaseUser.getUid();
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid + "/winter");
+
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + mDatabaseRef);
+
+        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println("Clicked "+position);
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.mcchild_fragment_container, childFragment).commit();
-                gridView.setVisibility(gridView.GONE);
+                mUploads.clear();
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Upload upload = postSnapshot.getValue(Upload.class);
+                    upload.setKey(postSnapshot.getKey());
+                    mUploads.add(upload);
+                }
+
+                mAdapter.notifyDataSetChanged();
+
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -72,16 +130,21 @@ public class MCChildFragment3 extends Fragment
 
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+    @Override
+    public void onItemClick(int position) {
+
+    }
+
+    @Override
+    public void onWhatEverClick(int position) {
+
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+
+    }
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
