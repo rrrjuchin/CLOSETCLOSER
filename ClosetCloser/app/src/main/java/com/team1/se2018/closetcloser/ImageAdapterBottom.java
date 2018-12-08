@@ -44,10 +44,13 @@ public class ImageAdapterBottom extends BaseAdapter {
         }
 
         imageView.setImageResource(mThumbIds[position]);
+
+
+
         return imageView;
     }
 
     private Integer[] mThumbIds = {
-            R.drawable.left,R.drawable.logo,R.drawable.right, R.drawable.refresh, R.drawable.icon_daily
+            R.drawable.pizza, R.drawable.pizza,R.drawable.pizza
     };
 }
