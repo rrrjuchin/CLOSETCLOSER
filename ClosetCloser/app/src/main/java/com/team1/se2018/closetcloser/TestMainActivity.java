@@ -22,6 +22,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -44,12 +46,12 @@ public class TestMainActivity extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
-
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_main);
-
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
@@ -57,8 +59,8 @@ public class TestMainActivity extends AppCompatActivity {
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mStorageRef = FirebaseStorage.getInstance().getReference("Users");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
 
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +103,7 @@ public class TestMainActivity extends AppCompatActivity {
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
 
+
             Picasso.with(this).load(mImageUri).into(mImageView);
         }
     }
@@ -113,7 +116,7 @@ public class TestMainActivity extends AppCompatActivity {
 
     private void uploadFile() {
         if (mImageUri != null) {
-            final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
+            final StorageReference fileReference = mStorageRef.child(firebaseUser.getUid() + '/' + System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
             final Uri[] downloadUri = new Uri[1];
 
@@ -132,14 +135,12 @@ public class TestMainActivity extends AppCompatActivity {
                             Toast.makeText(TestMainActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
 
                             Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
-
                             while (!urlTask.isSuccessful());
 
                             Uri downloadUrl = urlTask.getResult();
-
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),downloadUrl.toString());
-
                             String uploadId = mDatabaseRef.push().getKey();
+                            uploadId =firebaseUser.getUid() + "/" + mEditTextFileName.getText().toString().trim();
                             mDatabaseRef.child(uploadId).setValue(upload);
                         }
                     })
