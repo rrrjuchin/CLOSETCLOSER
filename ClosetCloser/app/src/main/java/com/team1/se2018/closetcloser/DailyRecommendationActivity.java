@@ -3,9 +3,11 @@ package com.team1.se2018.closetcloser;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,14 +24,25 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.facebook.share.internal.DeviceShareDialogFragment.TAG;
 
 public class DailyRecommendationActivity extends Fragment
         implements DRChildFragment.OnFragmentInteractionListener,
@@ -46,24 +59,15 @@ public class DailyRecommendationActivity extends Fragment
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
 
+
     final String SERVER_URL_R = "http://54.180.112.26/recommend.php";
     final int MY_SOCKET_TIMEOUT_MS_R = 50000;
 
-    String userID = null;
-    String season = null;
+    protected String[] random_category = new String[3];
+    protected String[] random_color = new String[3];
 
-    String top_id_1 = null;
-    String top_id_2 = null;
-    String top_id_3 = null;
-
-    String bottom_id_1 = null;
-    String bottom_id_2 = null;
-    String bottom_id_3 = null;
-
-    String outer_id_1 = null;
-    String outer_id_2 = null;
-    String outer_id_3 = null;
-
+    protected String[] recommend_category = new String[3];
+    protected String[] recommend_color = new String[3];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,6 +84,7 @@ public class DailyRecommendationActivity extends Fragment
 
             @Override
             public void onClick(View v) {
+                randseltop_ini();
 
                 Toast.makeText(getActivity(),"눌렷다!!!!!!!!",Toast.LENGTH_SHORT).show();
             }
@@ -151,68 +156,12 @@ public class DailyRecommendationActivity extends Fragment
         refreshBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // test
                 test();
                 // get new recommendation
-
-                // post image to server
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_URL_R, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try{
-                            JSONObject obj = new JSONObject(response);
-
-                            bottom_id_1 = obj.optString("bottom_id_1");
-                            bottom_id_2 = obj.getString("bottom_id_2");
-                            bottom_id_3 = obj.getString("bottom_id_3");
-
-                            outer_id_1 = obj.getString("outer_id_1");
-                            outer_id_2 = obj.getString("outer_id_2");
-                            outer_id_3 = obj.getString("outer_id_3");
-
-                            // test toast
-                            Toast.makeText(getActivity(),bottom_id_1+bottom_id_2+bottom_id_3+outer_id_1+outer_id_2+outer_id_3,Toast.LENGTH_SHORT).show();
-
-                        }catch(JSONException e){
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Toast.makeText(getApplicationContext(), "error: "+error.toString(), Toast.LENGTH_LONG).show();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("userID", userID);
-                        params.put("season", season);
-                        params.put("top_id_1", top_id_1);
-                        params.put("top_id_2", top_id_2);
-                        params.put("top_id_3", top_id_3);
-                        return params;
-                    }
-                };
-
-                stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                        MY_SOCKET_TIMEOUT_MS_R,
-                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
-                ));
-
-                // may occurs error
-                RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
-                requestQueue.add(stringRequest);
-
+                recommendationService();
             }
         });
-
-
-
     }
-
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -245,11 +194,108 @@ public class DailyRecommendationActivity extends Fragment
         void messageFromParentFragment(Uri uri);
     }
 
+    private void randseltop_ini() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseAuth fhj = FirebaseAuth.getInstance();
+        FirebaseUser fu = fhj.getCurrentUser();
+        final int[] i = {0};
+        final int[] cnt = {0};
+        final int[] randomindex = {0};
+        final ArrayList randListRes = new ArrayList();
+        final ArrayList randListTop = new ArrayList();
+        db.collection("/Usercloset/"+fu.getUid()+"/winter__top")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                                System.out.println(document.getId());
+                                randListTop.add(document.getId());
+                                cnt[0]++;
+                                System.out.println(randListTop);
+                                System.out.println(cnt[0]);
+                            }
+
+                            for (i[0] = 0; i[0] < 3; i[0]++) {
+                                randomindex[0] = randomRange(0, cnt[0] - 1);
+
+                                randListRes.add(randListTop.get(randomindex[0]));
+                                System.out.println(randListRes);
+                            }
+                        } else {
+
+                            System.out.println("Shit");
+
+                        }
+                    }
+                });
+    }
+
+
+    public static int randomRange(int n1, int n2) {
+        return (int) (Math.random() * (n2 - n1 + 1)) + n1;
+    }
+
+
+    private void recommendationService(){
+        String user_id = firebaseUser.getUid();
+
+        // post image to server
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_URL_R, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONObject obj = new JSONObject(response);
+                    recommend_category[0] = obj.optString("category_1");
+                    recommend_category[1] = obj.optString("category_2");
+                    recommend_category[2] = obj.optString("category_3");
+                    recommend_color[0] = obj.optString("color_1");
+                    recommend_color[1] = obj.optString("color_2");
+                    recommend_color[2] = obj.optString("color_3");
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Toast.makeText(getApplicationContext(), "error: "+error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("category_1", random_category[0]);
+                params.put("color_1", random_color[0]);
+                params.put("category_2", random_category[1]);
+                params.put("color_2", random_color[1]);
+                params.put("category_3", random_category[2]);
+                params.put("color_3", random_color[2]);
+                return params;
+            }
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                MY_SOCKET_TIMEOUT_MS_R,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
+
+        // may occurs error
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
     void test(){
-        userID = firebaseUser.getUid();
-        season = "winter";
-        top_id_1 = "Long_Sleeve__38243e52-b01d-4923-87ae-4243c793c66c";
-        top_id_2 = "Sweater__cd361af1-9c6e-4fd5-ad32-b8f3445e21ce";
-        top_id_3 = "Long_Sleeve__d2d20a3e-3e27-4a13-b780-6d32bdaa2ad8";
+        random_category[0] = "coat";
+        random_category[1] = "padding";
+        random_category[2] = "sweater";
+
+        random_color[0] = "black";
+        random_color[1] = "red";
+        random_color[2] = "brown";
+
     }
 }

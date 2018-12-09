@@ -2,6 +2,8 @@ package com.team1.se2018.closetcloser;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.ContextMenu;
@@ -10,11 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.net.URI;
 import java.util.List;
 
 public class SRImageAdapter extends RecyclerView.Adapter<SRImageAdapter.ImageViewHolder> {
@@ -39,13 +43,32 @@ public class SRImageAdapter extends RecyclerView.Adapter<SRImageAdapter.ImageVie
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
-        holder.textViewName.setText(uploadCurrent.getName());
         Picasso.with(mFragment.getActivity())
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
                 .fit()
                 .centerCrop()
                 .into(holder.imageView);
+        Picasso.with(mFragment.getActivity())
+                .load(uploadCurrent.getImageUrl())
+                .placeholder(R.mipmap.ic_launcher)
+                .fit()
+                .centerCrop()
+                .into(holder.rec_imageView);
+        /**
+        Picasso.with(mFragment.getActivity())
+                .load(uploadCurrent.getImageUrl())
+                .placeholder(R.mipmap.ic_launcher)
+                .fit()
+                .centerCrop()
+                .into(holder.rec_imageView2);
+        Picasso.with(mFragment.getActivity())
+                .load(uploadCurrent.getImageUrl())
+                .placeholder(R.mipmap.ic_launcher)
+                .fit()
+                .centerCrop()
+                .into(holder.rec_imageView3);
+        **/
     }
 
     @Override
@@ -57,13 +80,29 @@ public class SRImageAdapter extends RecyclerView.Adapter<SRImageAdapter.ImageVie
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         public TextView textViewName;
         public ImageView imageView;
-
+        public ImageView rec_imageView;
+        //public ImageView rec_imageView2;
+        //public ImageView rec_imageView3;
+        //public String hpadd;
+        public Button btn_gobuy_rec;
         public ImageViewHolder(View itemView) {
             super(itemView);
 
-            textViewName = itemView.findViewById(R.id.itemname_sr1);
+            //textViewName = itemView.findViewById(R.id.itemname_sr1);
             imageView = itemView.findViewById(R.id.item_image);
+            rec_imageView = itemView.findViewById(R.id.codi_image_outer);
+            //rec_imageView2 = itemView.findViewById(R.id.codi_image_top);
+            //rec_imageView3 = itemView.findViewById(R.id.codi_image_bottom);
+            btn_gobuy_rec = (Button)itemView.findViewById(R.id.redirect_shop);
 
+            btn_gobuy_rec.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"));
+                    v.getContext().startActivity(intent);
+                }
+            });
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
         }
@@ -81,10 +120,8 @@ public class SRImageAdapter extends RecyclerView.Adapter<SRImageAdapter.ImageVie
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.setHeaderTitle("Select Action");
-            MenuItem doWhatever = menu.add(Menu.NONE, 1, 1, "Do whatever");
-            MenuItem delete = menu.add(Menu.NONE, 2, 2, "Delete");
+            MenuItem delete = menu.add(Menu.NONE, 1, 1, "Delete");
 
-            doWhatever.setOnMenuItemClickListener(this);
             delete.setOnMenuItemClickListener(this);
         }
 
@@ -96,9 +133,6 @@ public class SRImageAdapter extends RecyclerView.Adapter<SRImageAdapter.ImageVie
 
                     switch (item.getItemId()) {
                         case 1:
-                            mListener.onWhatEverClick(position);
-                            return true;
-                        case 2:
                             mListener.onDeleteClick(position);
                             return true;
                     }

@@ -41,9 +41,9 @@ public class SRListItemView1 extends LinearLayout {
         codiImageOuter = (ImageView) findViewById(R.id.codi_image_outer);
         codiImageTop = (ImageView) findViewById(R.id.codi_image_top);
         codiImageBottom = (ImageView) findViewById(R.id.codi_image_bottom);
-        mallName = (TextView) findViewById(R.id.mallname_sr1);
-        itemName = (TextView) findViewById(R.id.itemname_sr1);
-        itemPrice = (TextView) findViewById(R.id.itemprice_sr1);
+        //mallName = (TextView) findViewById(R.id.mallname_sr1);
+        //itemName = (TextView) findViewById(R.id.itemname_sr1);
+        //itemPrice = (TextView) findViewById(R.id.itemprice_sr1);
         gotoShop = (Button) findViewById(R.id.redirect_shop);
 
     }

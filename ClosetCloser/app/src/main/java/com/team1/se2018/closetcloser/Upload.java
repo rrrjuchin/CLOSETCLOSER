@@ -6,19 +6,24 @@ public class Upload {
     private String mImageUrl;
     private String mName;
     private String mKey;
+    //private String mrec_1;
+    //private String mrec_2;
+    //private String mhomepage;
 
     public Upload() {
         //empty constructor needed
     }
 
-    public Upload(String name, String imageUrl) {
+    public Upload(String name, String imageUrl/**, String rec1url, String rec2url, String homepageadress**/) {
         if (name.trim().equals("")) {
             name = "No Name";
         }
 
         mName = name;
         mImageUrl = imageUrl;
-
+        //mrec_1 = rec1url;
+        //mrec_2 = rec2url;
+        //mhomepage = homepageadress;
     }
 
     public String getName() {
@@ -43,6 +48,11 @@ public class Upload {
         return mKey;
     }
 
+//    public String getRec1ImageUrl(){return mrec_1;}
+
+//    public String getRec2ImageUrl(){return mrec_2;}
+
+//    public String gethpadress(){return mhomepage}
     @Exclude
     public void setKey(String key) {
         mKey = key;

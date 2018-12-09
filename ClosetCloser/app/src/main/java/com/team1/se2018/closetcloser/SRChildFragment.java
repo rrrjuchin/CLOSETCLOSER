@@ -49,6 +49,7 @@ public class SRChildFragment extends Fragment implements SRImageAdapter.OnItemCl
     // TODO: Rename and change types of parameters
     public static SRChildFragment newInstance(String param1, String param2) {
         SRChildFragment fragment = new SRChildFragment();
+        Bundle args;
         return fragment;
     }
 
@@ -82,7 +83,6 @@ public class SRChildFragment extends Fragment implements SRImageAdapter.OnItemCl
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
                     upload.setKey(postSnapshot.getKey());
-                    upld =  upload.getImageUrl();
                     mUploads.add(upload);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -130,7 +130,6 @@ public class SRChildFragment extends Fragment implements SRImageAdapter.OnItemCl
             @Override
             public void onSuccess(Void aVoid) {
                 mDatabaseRef.child(selectedKey).removeValue();
-
             }
         });
     }

@@ -107,6 +107,7 @@ public class MyclothesUploadActivity extends Activity {
     private StorageTask mUploadTask;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+    private TransactionClass transaction;
 
     private String SERVER_URL = "http://54.180.112.26/upload.php";
     private int MY_SOCKET_TIMEOUT_MS = 50000;
@@ -135,21 +136,19 @@ public class MyclothesUploadActivity extends Activity {
 
     private Bitmap img;
     private String[] predict_result;
-    private TransactionClass transaction;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
-
-        transaction = new TransactionClass();
         mStorageRef = FirebaseStorage.getInstance().getReference("user");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("user");
         season = (Spinner) findViewById(R.id.season);
         type = (Spinner) findViewById(R.id.type);
         category = (Spinner) findViewById(R.id.category);
         color = (Spinner) findViewById(R.id.color);
+        transaction = new TransactionClass();
 
         final Button image_button = (Button) findViewById(R.id.image);
         final Button upload_button = (Button) findViewById(R.id.upload);
@@ -261,7 +260,6 @@ public class MyclothesUploadActivity extends Activity {
             }
 
         });
-
         upload_button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 final String staticuid = UUID.randomUUID().toString();

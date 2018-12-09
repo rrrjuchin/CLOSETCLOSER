@@ -1,7 +1,6 @@
 package com.team1.se2018.closetcloser;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,29 +24,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MCChildFragmentOuter extends Fragment
-        implements MCChildFragmentItem.OnFragmentInteractionListener, TestImageAdapter.OnItemClickListener {
+        implements MCChildFragmentItem.OnFragmentInteractionListener, TestImageAdapter.OnItemClickListener  {
 
     private MyClosetActivity.OnFragmentInteractionListener mListener;
+
     final Fragment childFragment = new MCChildFragmentItem();
 
     private RecyclerView mRecyclerView;
     private TestImageAdapter mAdapter;
+
     private ProgressBar mProgressCircle;
+
     private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
     private List<Upload> mUploads;
-    private Bitmap imgdwn;
-    private String upld;
-
 
     // TODO: Rename and change types of parameters
     public static MCChildFragmentOuter newInstance(String param1, String param2) {
@@ -70,38 +67,54 @@ public class MCChildFragmentOuter extends Fragment
         mRecyclerView = root.findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+
         mProgressCircle = root.findViewById(R.id.progress_circle);
+
         mUploads = new ArrayList<>();
+
         mAdapter = new TestImageAdapter(MCChildFragmentOuter.this, mUploads);
+
         mRecyclerView.setAdapter(mAdapter);
+
         mAdapter.setOnItemClickListener(MCChildFragmentOuter.this);
+
         mStorage = FirebaseStorage.getInstance();
+
         String uid = firebaseUser.getUid();
+
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid + "/spring_fall");
+
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + mDatabaseRef);
+
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 mUploads.clear();
+
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
                     upload.setKey(postSnapshot.getKey());
-                    upld =  upload.getImageUrl();
                     mUploads.add(upload);
                 }
+
                 mAdapter.notifyDataSetChanged();
+
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
+
         return root;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
+
     }
 
     @Override
@@ -121,10 +134,7 @@ public class MCChildFragmentOuter extends Fragment
 
     @Override
     public void onItemClick(int position) {
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.replace(R.id.mcchild_fragment_container, childFragment).commit();
-        mRecyclerView.setVisibility(mRecyclerView.GONE);
-        System.out.println();
+
     }
 
     @Override
@@ -142,7 +152,6 @@ public class MCChildFragmentOuter extends Fragment
             @Override
             public void onSuccess(Void aVoid) {
                 mDatabaseRef.child(selectedKey).removeValue();
-
             }
         });
     }

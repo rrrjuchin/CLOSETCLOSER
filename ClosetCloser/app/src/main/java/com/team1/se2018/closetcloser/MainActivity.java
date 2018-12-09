@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -46,7 +47,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        LoginButton facebook_button = (LoginButton) findViewById(R.id.facebook_login);
+        final LoginButton facebook_button = (LoginButton) findViewById(R.id.facebook_login);
+
+        final ImageView fakeLogin = (ImageView) findViewById(R.id.fake_login);
+
+        fakeLogin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                facebook_button.performClick();
+            }
+        });
+
         Button email_button = (Button) findViewById(R.id.email_login);
 
         email_button.setOnClickListener(new View.OnClickListener() {
@@ -160,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateUI(FirebaseUser user){
+
 
         if(user != null){
 
