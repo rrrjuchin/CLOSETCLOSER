@@ -1,5 +1,6 @@
 package com.team1.se2018.closetcloser;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -97,7 +98,11 @@ public class DailyRecommendationActivity extends Fragment
             }
         });
 
+        // test
+        getUserID();
 
+        // get id of top
+        randseltop_ini();
 
         return rootView;
     }
@@ -163,18 +168,23 @@ public class DailyRecommendationActivity extends Fragment
         refreshBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // test
-                getUserID();
 
-                // get id of top
-                randseltop_ini();
+                final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+                progressDialog.setTitle("Recommendation");
+                progressDialog.show();
+                progressDialog.setMessage("Loading..");
+
 
                 // get new recommendation
                 // post image to server
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_URL_R, new Response.Listener<String>() {
+
                     @Override
                     public void onResponse(String response) {
                         try{
+
+                            progressDialog.dismiss();
+
                             JSONObject obj = new JSONObject(response);
 
                             bottom_id_1 = obj.optString("bottom_id_1");
@@ -187,6 +197,9 @@ public class DailyRecommendationActivity extends Fragment
 
                             // test toast
                             Toast.makeText(getActivity(),bottom_id_1+bottom_id_2+bottom_id_3+outer_id_1+outer_id_2+outer_id_3,Toast.LENGTH_SHORT).show();
+
+                            DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
+                            frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
 
                         }catch(JSONException e){
                             e.printStackTrace();
@@ -249,10 +262,6 @@ public class DailyRecommendationActivity extends Fragment
 
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
