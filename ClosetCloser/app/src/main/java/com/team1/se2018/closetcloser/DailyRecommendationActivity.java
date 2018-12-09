@@ -284,18 +284,27 @@ public class DailyRecommendationActivity extends Fragment
                                 System.out.println(cnt[0]);
                             }
 
-                            for (i[0] = 0; i[0] < 3; i[0]++) {
+                         for (i[0] = 0; i[0] < 3; i[0]++) {
                                 randomindex[0] = randomRange(0, cnt[0] - 1);
+                                if(i[0] == 1){
+                                    randListRes.add(randListTop.get(randomindex[0]));
+                                    continue;
+                                }
 
-
-
+                                for(int j = 0 ; j < randListRes.size();j++){
+                                    if(randListTop.get(randomindex[0]) == randListRes.get(j).toString()){
+                                        i[0]-=1;
+                                        break;
+                                    }
+                                }
                                 randListRes.add(randListTop.get(randomindex[0]));
                                 System.out.println(randListRes);
                             }
+
                             top_id_1 = randListRes.get(0).toString();
                             top_id_2 = randListRes.get(1).toString();
                             top_id_3 = randListRes.get(2).toString();
-                        } else {
+                        }` else {
 
                             System.out.println("Shit");
 
