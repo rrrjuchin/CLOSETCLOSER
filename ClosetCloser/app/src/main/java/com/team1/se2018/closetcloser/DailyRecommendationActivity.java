@@ -166,7 +166,6 @@ public class DailyRecommendationActivity extends Fragment
                 // test
                 getUserID();
 
-
                 // get id of top
                 randseltop_ini();
 
@@ -286,7 +285,7 @@ public class DailyRecommendationActivity extends Fragment
 
                          for (i[0] = 0; i[0] < 3; i[0]++) {
                                 randomindex[0] = randomRange(0, cnt[0] - 1);
-                                if(i[0] == 1){
+                                if(i[0] == 0){
                                     randListRes.add(randListTop.get(randomindex[0]));
                                     continue;
                                 }
@@ -304,7 +303,7 @@ public class DailyRecommendationActivity extends Fragment
                             top_id_1 = randListRes.get(0).toString();
                             top_id_2 = randListRes.get(1).toString();
                             top_id_3 = randListRes.get(2).toString();
-                        }` else {
+                        } else {
 
                             System.out.println("Shit");
 
