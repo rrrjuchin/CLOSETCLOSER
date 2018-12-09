@@ -50,8 +50,7 @@
             android:layout_height="400dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:orientation="vertical"
-            app:srcCompat="@drawable/clothessample">
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/drchild_fragment_container"
@@ -70,26 +69,32 @@
                     android:id="@+id/btn_rec1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="추천 1"
+                    android:text="style #1"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/juliussansone"/>
 
                 <Button
                     android:id="@+id/btn_rec2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="추천 2"
+                    android:text="style #2"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/juliussansone"/>
 
 
                 <Button
                     android:id="@+id/btn_rec3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="추천 3"
+                    android:text="style #3"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/juliussansone"/>
 
             </LinearLayout>
 

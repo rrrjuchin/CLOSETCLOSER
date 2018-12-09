@@ -64,24 +64,6 @@
             android:layout_marginBottom="10dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/mallname_sr1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="쇼핑몰 이름" />
-
-            <TextView
-                android:id="@+id/itemname_sr1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="상품 이름" />
-
-
-            <TextView
-                android:id="@+id/itemprice_sr1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="상품 가격" />
 
         </LinearLayout>
 
