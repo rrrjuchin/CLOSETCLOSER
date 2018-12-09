@@ -63,7 +63,7 @@ public class DailyRecommendationActivity extends Fragment
     final int MY_SOCKET_TIMEOUT_MS_R = 50000;
 
     String userID = null;
-    String season = null;
+    String season = "winter";
 
     String top_id_1 = null;
     String top_id_2 = null;
@@ -164,9 +164,13 @@ public class DailyRecommendationActivity extends Fragment
             @Override
             public void onClick(View v) {
                 // test
-                test();
-                // get new recommendation
+                getUserID();
 
+
+                // get id of top
+                randseltop_ini();
+
+                // get new recommendation
                 // post image to server
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_URL_R, new Response.Listener<String>() {
                     @Override
@@ -283,9 +287,14 @@ public class DailyRecommendationActivity extends Fragment
                             for (i[0] = 0; i[0] < 3; i[0]++) {
                                 randomindex[0] = randomRange(0, cnt[0] - 1);
 
+
+
                                 randListRes.add(randListTop.get(randomindex[0]));
                                 System.out.println(randListRes);
                             }
+                            top_id_1 = randListRes.get(0).toString();
+                            top_id_2 = randListRes.get(1).toString();
+                            top_id_3 = randListRes.get(2).toString();
                         } else {
 
                             System.out.println("Shit");
@@ -302,11 +311,11 @@ public class DailyRecommendationActivity extends Fragment
 
 
 
-    void test(){
+    void getUserID(){
         userID = firebaseUser.getUid();
-        season = "winter";
-        top_id_1 = "Long_Sleeve__38243e52-b01d-4923-87ae-4243c793c66c";
-        top_id_2 = "Sweater__cd361af1-9c6e-4fd5-ad32-b8f3445e21ce";
-        top_id_3 = "Long_Sleeve__d2d20a3e-3e27-4a13-b780-6d32bdaa2ad8";
+        // season = "winter";
+        // top_id_1 = "Long_Sleeve__38243e52-b01d-4923-87ae-4243c793c66c";
+        // top_id_2 = "Sweater__cd361af1-9c6e-4fd5-ad32-b8f3445e21ce";
+        // top_id_3 = "Long_Sleeve__d2d20a3e-3e27-4a13-b780-6d32bdaa2ad8";
     }
 }

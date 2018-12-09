@@ -5,24 +5,24 @@
     build-mode="COLD"
     density="xxhdpi"
     format="10"
-    ir-eligibility="CLASS_ADDED"
+    ir-eligibility="METHOD_DELETED"
     plugin-version="3.2.1"
-    timestamp="1544326817482"
+    timestamp="1544327217318"
     token="-9021555360910301181"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="2474" />
+        duration="1437" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="270" />
+        duration="100" />
     <task
         name="verifier"
-        duration="170" />
+        duration="51" />
 
     <artifact
         location="C:\Users\dongyoung\Documents\GitHub\CLOSETCLOSER\ClosetCloser\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
@@ -74,8 +74,8 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="CLASS_ADDED"
-        timestamp="1544326817482"
+        ir-eligibility="METHOD_DELETED"
+        timestamp="1544327217318"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\dongyoung\Documents\GitHub\CLOSETCLOSER\ClosetCloser\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
