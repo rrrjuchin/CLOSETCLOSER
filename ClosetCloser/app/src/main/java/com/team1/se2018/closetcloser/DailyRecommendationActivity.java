@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
 import static com.facebook.share.internal.DeviceShareDialogFragment.TAG;
 
 public class DailyRecommendationActivity extends Fragment
@@ -58,7 +59,6 @@ public class DailyRecommendationActivity extends Fragment
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-
 
     final String SERVER_URL_R = "http://54.180.112.26/recommend.php";
     final int MY_SOCKET_TIMEOUT_MS_R = 50000;
@@ -98,14 +98,17 @@ public class DailyRecommendationActivity extends Fragment
             }
         });
 
-        // test
-        getUserID();
-
-        // get id of top
-        randseltop_ini();
-
         return rootView;
     }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        getUserID();
+        // get id of top
+        randseltop_ini();
+    }
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -131,6 +134,7 @@ public class DailyRecommendationActivity extends Fragment
 
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.drchild_fragment_container, childFragment2).commit();
+
             }
         });
 
@@ -166,8 +170,10 @@ public class DailyRecommendationActivity extends Fragment
 
         FloatingActionButton refreshBtn = (FloatingActionButton) view.findViewById(R.id.btn_refresh);
         refreshBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
 
                 final ProgressDialog progressDialog = new ProgressDialog(getActivity());
                 progressDialog.setTitle("Recommendation");
@@ -175,14 +181,23 @@ public class DailyRecommendationActivity extends Fragment
                 progressDialog.setMessage("Loading..");
 
 
+                Log.d("here22", String.valueOf(found));
+                if(!found){
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "옷장에 등록된 옷의 개수가 부족합니다", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+
                 // get new recommendation
                 // post image to server
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_URL_R, new Response.Listener<String>() {
 
+
                     @Override
                     public void onResponse(String response) {
-                        try{
 
+                        try{
                             progressDialog.dismiss();
 
                             JSONObject obj = new JSONObject(response);
@@ -201,6 +216,10 @@ public class DailyRecommendationActivity extends Fragment
                             DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
                             frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
 
+                            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                            transaction.replace(R.id.drchild_fragment_container, childFragment).commit();
+
+
                         }catch(JSONException e){
                             e.printStackTrace();
                         }
@@ -213,6 +232,7 @@ public class DailyRecommendationActivity extends Fragment
                 }){
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
+
                         Map<String, String> params = new HashMap<>();
                         params.put("userID", userID);
                         params.put("season", season);
@@ -268,7 +288,8 @@ public class DailyRecommendationActivity extends Fragment
         void messageFromParentFragment(Uri uri);
     }
 
-    private void randseltop_ini() {
+    boolean found = false;
+    private boolean randseltop_ini() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseAuth fhj = FirebaseAuth.getInstance();
         FirebaseUser fu = fhj.getCurrentUser();
@@ -277,9 +298,11 @@ public class DailyRecommendationActivity extends Fragment
         final int[] randomindex = {0};
         final ArrayList randListRes = new ArrayList();
         final ArrayList randListTop = new ArrayList();
+        found = false;
         db.collection("/Usercloset/"+fu.getUid()+"/winter__top")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
@@ -292,7 +315,13 @@ public class DailyRecommendationActivity extends Fragment
                                 System.out.println(cnt[0]);
                             }
 
-                         for (i[0] = 0; i[0] < 3; i[0]++) {
+                            Log.d("here", Integer.toString(randListTop.size()));
+                            if(randListTop.size() < 3){
+                                return;
+                            }
+
+
+                            for (i[0] = 0; i[0] < 3; i[0]++) {
                                 randomindex[0] = randomRange(0, cnt[0] - 1);
                                 if(i[0] == 0){
                                     randListRes.add(randListTop.get(randomindex[0]));
@@ -312,13 +341,20 @@ public class DailyRecommendationActivity extends Fragment
                             top_id_1 = randListRes.get(0).toString();
                             top_id_2 = randListRes.get(1).toString();
                             top_id_3 = randListRes.get(2).toString();
-                        } else {
+                            found = true;
+                            Log.d("here", String.valueOf(found));
 
+
+                        } else {
                             System.out.println("Shit");
 
                         }
+
                     }
+
                 });
+        return found;
+
     }
 
 

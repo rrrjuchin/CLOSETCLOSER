@@ -38,7 +38,7 @@ public class DRChildFragment3 extends Fragment {
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
-    private FirebaseFirestore db;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private String top_img;
     private String bottom_img;
@@ -73,67 +73,65 @@ public class DRChildFragment3 extends Fragment {
         }
     }
 
-    public void getimgUID(String top, String bottom, String outer, String season){
+    public void getimgUID(String top, String bottom, String outer, String season) {
 
-        String doc_path = season+"__bottom";
-        DocumentReference docRef = db.collection("Id_collect").document(firebaseUser.getUid()).collection(doc_path).document(bottom);
+        if(top == null){
+            return;
+        }
+
+        String doc_path = "Usercloset/" + firebaseUser.getUid() + "/" + season + "__top";
+
+        DocumentReference docRef = db.collection(doc_path).document(top);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        bottom_img = (String) document.get("img");
-
+                        downloadimg(document.get("img").toString(), ivTop);
                     }
                 }
             }
         });
 
-        doc_path = season+"__outer";
-        docRef = db.collection("Id_collect").document(firebaseUser.getUid()).collection(doc_path).document(outer);
+
+        doc_path = "Usercloset/" + firebaseUser.getUid() + "/" + season + "__bottom";
+
+        docRef = db.collection(doc_path).document(bottom);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        outer_img = (String) document.get("img");
-
+                        downloadimg(document.get("img").toString(), ivBottom);
                     }
                 }
             }
         });
 
-        doc_path = season+"__top";
-        docRef = db.collection("Id_collect").document(firebaseUser.getUid()).collection(doc_path).document(top);
+        doc_path = "Usercloset/" + firebaseUser.getUid() + "/" + season + "__outer";
+
+        docRef = db.collection(doc_path).document(outer);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        top_img = (String) document.get("img");
-
+                        downloadimg(document.get("img").toString(), ivOuter);
                     }
                 }
             }
         });
 
-        top_img = top;
-        bottom_img = bottom;
-        outer_img = outer;
-
-        downloadimg(top_img,ivTop);
-        downloadimg(bottom_img,ivBottom);
-        downloadimg(outer_img,ivOuter);
 
     }
 
     public void downloadimg(String img,final ImageView iv){
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
-        storageRef.child(img).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        storageRef.child("/user/"+img).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.with(DRChildFragment3.this.getActivity())
