@@ -1139,6 +1139,7 @@ drawable edit_button
 drawable edittext_login
 drawable ex2
 drawable ex4
+drawable facebook_login
 drawable find
 drawable glogin_button
 drawable googleg_disabled_color_18
@@ -1236,6 +1237,7 @@ id agreeText3reg
 id alertTitle
 id all
 id always
+id apptitle
 id async
 id auto
 id automatic
@@ -1306,6 +1308,8 @@ id constraintLayout
 id container
 id content
 id contentPanel
+id contents
+id contents2
 id coordinator
 id custom
 id customPanel
@@ -1346,7 +1350,9 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fab
+id facebook
 id facebook_login
+id fake_login
 id femaleButton
 id fill
 id fill_horizontal
@@ -1386,9 +1392,7 @@ id italic
 id itemPic
 id item_image
 id item_touch_helper_previous_elevation
-id itemname_sr1
 id itemname_sr2
-id itemprice_sr1
 id itemprice_sr2
 id labeled
 id large
@@ -1409,7 +1413,6 @@ id mallemail
 id mallemailText
 id mallname
 id mallnameText
-id mallname_sr1
 id mallname_sr2
 id mallpass
 id mallpassText
@@ -1548,6 +1551,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id titlebar
 id todayTextView
 id toolbar
 id top
