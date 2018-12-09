@@ -263,8 +263,8 @@ public class MyclothesUploadActivity extends Activity {
         });
 
         upload_button.setOnClickListener(new View.OnClickListener(){
-            staticuid = UUID.randomUUID().toString();
             public void onClick(View view){
+                final String staticuid = UUID.randomUUID().toString();
                 if(!(clothes_path==null) && !clothes_season.equals(season.getItemAtPosition(0)) && !clothes_type.equals(type.getItemAtPosition(0)) && !clothes_category.equals(category.getItemAtPosition(0)) && !clothes_color.equals(color.getItemAtPosition(0))){
                     Log.e("please_come_on2",clothes_season);
                     //saveseason = clothes_season;
@@ -288,7 +288,7 @@ public class MyclothesUploadActivity extends Activity {
                                         Upload upload = new Upload(str2,downloadUrl.toString());
                                         String uploadId = mDatabaseRef.push().getKey();
 
-                                            uploadId = firebaseUser.getUid() + "/" + saveseason + "/" + str2;
+                                        uploadId = firebaseUser.getUid() + "/" + saveseason + "/" + str2;
 
                                         Log.e("please_come_on",saveseason);
                                         mDatabaseRef.child(uploadId).setValue(upload);
