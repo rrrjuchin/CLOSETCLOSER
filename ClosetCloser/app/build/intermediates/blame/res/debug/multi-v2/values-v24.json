@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\gkssk\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\gkssk\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\951086b937f91fbf1f3a65fd216882ae\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\c5c500416c91c6b982e4d29c63901fd4\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\gkssk\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d1901dc28cf55cad1c3402a2570dd72d\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
