@@ -56,21 +56,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=" 옷들의 조합이 마음에 들지 않아요." />
+                android:text=" 상의와 하의의 조합이 마음에 들지 않아요." />
 
             <CheckBox
                 android:id="@+id/checkbox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=" 색 조합이 마음에 들지 않아요." />
+                android:text=" 상의와 외투의 조합이 마음에 들지 않아요." />
 
             <CheckBox
                 android:id="@+id/checkbox3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=" 계절에 맞지 않아요." />
+                android:text=" 두 조합이 모두 마음에 들지 않아요." />
         </LinearLayout>
 
         <Button

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/iyejin/Documents/CLOSETCLOSER/ClosetCloser/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-id/values-id.xml",
+            "outputFile": "C:\\Users\\gkssk\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-id\\values-id.xml",
             "map": [
                 {
-                    "source": "/Users/iyejin/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/426ea57ad4b645e4eca2a4a56f95a1f0/res/values-id/values-id.xml",
+                    "source": "C:\\Users\\gkssk\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-common-4.38.1.aar\\efc0076a6a57388146919a10ff229f63\\res\\values-id\\values-id.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
