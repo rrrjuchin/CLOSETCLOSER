@@ -14,6 +14,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,7 +32,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class ShoppingActivity extends Fragment
         implements SRChildFragment.OnFragmentInteractionListener, SRChildFragment2.OnFragmentInteractionListener{
@@ -32,14 +47,20 @@ public class ShoppingActivity extends Fragment
 
     private OnFragmentInteractionListener mListener;
 
+    final String SERVER_URL_A = "http://54.180.112.26/all_new_styles/client.php";
+    final int MY_SOCKET_TIMEOUT_MS_R = 50000;
+
     final Fragment childFragment = new SRChildFragment();
     final Fragment childFragment2 = new SRChildFragment2();
     final Fragment childFragment3 = new SRChildFragment3();
+
     String userID = null;
+    String season = "winter";
+
     String top_id_1 = null;
     String top_id_2 = null;
     String top_id_3 = null;
-    private String check_sex = "*";
+
     String bottom_id_1 = null;
     String bottom_id_2 = null;
     String bottom_id_3 = null;
@@ -47,8 +68,12 @@ public class ShoppingActivity extends Fragment
     String outer_id_1 = null;
     String outer_id_2 = null;
     String outer_id_3 = null;
+
+    private String check_sex = "*";
+
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,10 +95,8 @@ public class ShoppingActivity extends Fragment
 
             @Override
             public void onClick(View v) {
-
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.srchild_fragment_container, childFragment).commit();
-
             }
         });
 
@@ -82,11 +105,14 @@ public class ShoppingActivity extends Fragment
 
             @Override
             public void onClick(View v) {
-
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.srchild_fragment_container, childFragment2).commit();
                 Log.e("hahahahahahahahahaha",check_sex);
                 randseltop_ini();
+
+                // go
+
+
             }
         });
 
@@ -113,7 +139,9 @@ public class ShoppingActivity extends Fragment
         final int[] random_tag = {0};
         found = false;
         DocumentReference docRef = db.collection("Normmem").document(fu.getUid());
+
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 Log.e("haha",check_sex);
@@ -129,6 +157,7 @@ public class ShoppingActivity extends Fragment
                         db.collection("/Seller_cloth/"+ check_sex + "/winter__top")
                                 .get()
                                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                         if (task.isSuccessful()) {
@@ -144,7 +173,7 @@ public class ShoppingActivity extends Fragment
                                             Log.d("here", Integer.toString(randListTop.size()));
                                             if(randListTop.size() < 3){
                                                 found = false;
-                                                //recommend(found, progressDialog);
+                                                recommend(found, progressDialog);
                                                 return;
                                             }
                                             for (i[0] = 0; i[0] < 3; i[0]++) {
@@ -224,11 +253,88 @@ public class ShoppingActivity extends Fragment
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-
     }
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void messageFromParentFragment(Uri uri);
     }
+
+    public void recommend(boolean found, final ProgressDialog progressDialog){
+
+
+        Log.d("here22", String.valueOf(found));
+        if(!found){
+            progressDialog.dismiss();
+            Toast.makeText(getApplicationContext(), "옷장에 등록된 옷의 개수가 부족합니다", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        // get new recommendation
+        // post image to server
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_URL_A, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                try{
+                    progressDialog.dismiss();
+
+                    JSONObject obj = new JSONObject(response);
+
+                    bottom_id_1 = obj.optString("bottom_id_1");
+                    bottom_id_2 = obj.getString("bottom_id_2");
+                    bottom_id_3 = obj.getString("bottom_id_3");
+
+                    outer_id_1 = obj.getString("outer_id_1");
+                    outer_id_2 = obj.getString("outer_id_2");
+                    outer_id_3 = obj.getString("outer_id_3");
+
+                    // test toast
+                    Toast.makeText(getActivity(),bottom_id_1+bottom_id_2+bottom_id_3+outer_id_1+outer_id_2+outer_id_3,Toast.LENGTH_SHORT).show();
+
+                    DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
+                    frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
+
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.drchild_fragment_container, childFragment).commit();
+
+
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Toast.makeText(getApplicationContext(), "error: "+error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("userID", userID);
+                params.put("season", season);
+                params.put("top_id_1", top_id_1);
+                params.put("top_id_2", top_id_2);
+                params.put("top_id_3", top_id_3);
+                return params;
+            }
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                MY_SOCKET_TIMEOUT_MS_R,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
+
+        // may occurs error
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        requestQueue.add(stringRequest);
+
+    }
+
 }
+
