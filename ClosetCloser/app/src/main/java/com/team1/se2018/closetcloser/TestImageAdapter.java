@@ -3,6 +3,7 @@ package com.team1.se2018.closetcloser;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -79,10 +80,8 @@ public class TestImageAdapter extends RecyclerView.Adapter<TestImageAdapter.Imag
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.setHeaderTitle("Select Action");
-            MenuItem doWhatever = menu.add(Menu.NONE, 1, 1, "Do whatever");
-            MenuItem delete = menu.add(Menu.NONE, 2, 2, "Delete");
+            MenuItem delete = menu.add(Menu.NONE, 1, 1, "Delete");
 
-            doWhatever.setOnMenuItemClickListener(this);
             delete.setOnMenuItemClickListener(this);
         }
 
@@ -94,9 +93,6 @@ public class TestImageAdapter extends RecyclerView.Adapter<TestImageAdapter.Imag
 
                     switch (item.getItemId()) {
                         case 1:
-                            mListener.onWhatEverClick(position);
-                            return true;
-                        case 2:
                             mListener.onDeleteClick(position);
                             return true;
                     }

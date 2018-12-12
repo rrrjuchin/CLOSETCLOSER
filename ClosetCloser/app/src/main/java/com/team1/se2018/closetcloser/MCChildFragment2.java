@@ -3,6 +3,7 @@ package com.team1.se2018.closetcloser;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +15,9 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +25,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -42,6 +48,7 @@ public class MCChildFragment2 extends Fragment
 
     private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ValueEventListener mDBListener;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
@@ -82,7 +89,7 @@ public class MCChildFragment2 extends Fragment
 
         String uid = firebaseUser.getUid();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid + "/summer");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid + "/summer__top");
 
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + mDatabaseRef);
 
@@ -91,6 +98,53 @@ public class MCChildFragment2 extends Fragment
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 mUploads.clear();
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Upload upload = postSnapshot.getValue(Upload.class);
+                    upload.setKey(postSnapshot.getKey());
+                    mUploads.add(upload);
+                }
+                mAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid + "/summer__bottom");
+
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + mDatabaseRef);
+
+        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Upload upload = postSnapshot.getValue(Upload.class);
+                    upload.setKey(postSnapshot.getKey());
+                    mUploads.add(upload);
+                }
+                mAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid + "/summer__outer");
+
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + mDatabaseRef);
+
+        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
@@ -144,14 +198,114 @@ public class MCChildFragment2 extends Fragment
 
     @Override
     public void onDeleteClick(int position) {
-        Upload selectedItem = mUploads.get(position);
-        final String selectedKey = selectedItem.getKey();
+        final Upload selectedItem = mUploads.get(position);
+        final String selectedtype = selectedItem.getType();
+        final String selectedname = selectedItem.getName();
+
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"+selectedtype);
 
         StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
         imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                mDatabaseRef.child(selectedKey).removeValue();
+
+                String uid = firebaseUser.getUid();
+
+                if(selectedtype.equals("top")){
+
+                    mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid + "/summer__top");
+                    db.collection("Usercloset").document(uid).collection("summer__top").document(selectedname)
+                            .delete();
+
+                    db.collection("Transaction").document(uid).collection("bottom")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                            if(document.getString("top").equals(selectedname)){
+                                                document.getReference().delete();
+                                            }
+                                        }
+                                    }
+                                }
+
+                            });
+                    db.collection("Transaction").document(uid).collection("outer")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                            if(document.getString("top").equals(selectedname)){
+                                                document.getReference().delete();
+                                            }
+                                        }
+                                    }
+                                }
+
+                            });
+
+                }
+                else if(selectedtype.equals("bottom")){
+                    mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid + "/summer__bottom");
+                    db.collection("Usercloset").document(uid).collection("summer__bottom").document(selectedname)
+                            .delete();
+
+
+                    db.collection("Transaction").document(uid).collection("bottom")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                            if(document.getString("clothes").equals(selectedname)){
+                                                document.getReference().delete();
+                                            }
+                                        }
+                                    }
+                                }
+
+                            });
+
+                }
+                else{
+                    mDatabaseRef = FirebaseDatabase.getInstance().getReference("user/"+uid + "/summer__outer");
+                    db.collection("Usercloset").document(uid).collection("summer__outer").document(selectedname)
+                            .delete();
+
+
+                    db.collection("Transaction").document(uid).collection("outer")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                            if(document.getString("clothes").equals(selectedname)){
+                                                document.getReference().delete();
+                                            }
+                                        }
+                                    }
+                                }
+
+                            });
+
+                }
+
+                mDatabaseRef.child(selectedname).removeValue();
+                Fragment currentFragment = getFragmentManager().findFragmentById(R.id.mcchild_fragment_container);
+                FragmentTransaction fragTransaction =   (currentFragment).getFragmentManager().beginTransaction();
+                fragTransaction.detach(currentFragment);
+                fragTransaction.attach(currentFragment);
+                fragTransaction.commit();
             }
         });
     }

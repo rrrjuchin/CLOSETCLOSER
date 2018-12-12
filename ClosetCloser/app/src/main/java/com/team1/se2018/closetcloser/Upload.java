@@ -6,6 +6,7 @@ public class Upload {
     private String mImageUrl;
     private String mName;
     private String mKey;
+    private String mType;
     //private String mrec_1;
     //private String mrec_2;
     //private String mhomepage;
@@ -14,13 +15,15 @@ public class Upload {
         //empty constructor needed
     }
 
-    public Upload(String name, String imageUrl/**, String rec1url, String rec2url, String homepageadress**/) {
+    public Upload(String name, String imageUrl, String type/**, String rec1url, String rec2url, String homepageadress**/) {
         if (name.trim().equals("")) {
             name = "No Name";
         }
 
         mName = name;
         mImageUrl = imageUrl;
+        mType= type;
+
         //mrec_1 = rec1url;
         //mrec_2 = rec2url;
         //mhomepage = homepageadress;
@@ -41,6 +44,14 @@ public class Upload {
 
     public void setImageUrl(String imageUrl) {
         mImageUrl = imageUrl;
+    }
+
+    public String getType() {
+        return mType;
+    }
+
+    public void setType(String type) {
+        mType = type;
     }
 
     @Exclude

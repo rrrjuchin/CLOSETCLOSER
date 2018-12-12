@@ -261,7 +261,7 @@ public class MyclothesUploadActivity extends Activity {
         upload_button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
 
-                saveseason = clothes_season;
+                saveseason = clothes_season + "__" + clothes_type;
                 staticuid = UUID.randomUUID().toString();
                 if(!(clothes_path==null) && !clothes_season.equals(season.getItemAtPosition(0)) && !clothes_type.equals(type.getItemAtPosition(0)) && !clothes_category.equals(category.getItemAtPosition(0)) && !clothes_color.equals(color.getItemAtPosition(0))){
 
@@ -271,7 +271,7 @@ public class MyclothesUploadActivity extends Activity {
                     dataDB.put("img", image_path);
 
                     String document_Path = clothes_season + "__" + clothes_type;
-                    String new_path = clothes_category + "__" + UUID.randomUUID();
+                    final String new_path = clothes_category + "__" + staticuid;
 
                     db.collection("Usercloset").document(firebaseUser.getUid()).collection(document_Path).document(new_path).set(dataDB, SetOptions.merge());
                     transaction.getmyClothes(clothes_season, clothes_type, clothes_category, clothes_color, new_path);
@@ -294,12 +294,12 @@ public class MyclothesUploadActivity extends Activity {
 
                                     Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                                     while (!urlTask.isSuccessful()) ;
-                                    String str2 = staticuid;
+                                    String str2 = new_path;
                                     Uri downloadUrl = urlTask.getResult();
-                                    Upload upload = new Upload(str2, downloadUrl.toString());
+                                    Upload upload = new Upload(str2, downloadUrl.toString(), clothes_type);
                                     String uploadId = mDatabaseRef.push().getKey();
 
-                                    uploadId = firebaseUser.getUid() + "/" + saveseason + "/" + str2;
+                                    uploadId = firebaseUser.getUid() + "/" + saveseason  + "/" + str2;
 
                                     mDatabaseRef.child(uploadId).setValue(upload);
                                     Toast.makeText(MyclothesUploadActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
@@ -434,7 +434,6 @@ public class MyclothesUploadActivity extends Activity {
 
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -447,32 +446,23 @@ public class MyclothesUploadActivity extends Activity {
                 try {
 
                     clothes_path = data.getData();
-
-
                     in = getContentResolver().openInputStream(clothes_path);
 
                     img = BitmapFactory.decodeStream(in);
-                    // test
-                    //img = Bitmap.createScaledBitmap(img,(int)(img.getWidth()*0.5), (int)(img.getHeight()*0.5), true);
-                    // test
-                    // img = Bitmap.createScaledBitmap(img,(int)(500), (int)(500), true);
 
                     String imagePath = getRealPathFromURI(clothes_path); // path 경로
                     ExifInterface exif = null;
-                    Log.e("image_path_uri",imagePath);
+                    Log.e("please_help",imagePath);
                     try {
                         exif = new ExifInterface(imagePath);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                     int exifOrientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
                     int exifDegree = exifOrientationToDegrees(exifOrientation);
 
-                    img = rotate(img, exifDegree);
-
                     image_view.setVisibility(View.VISIBLE);
-                    image_view.setImageBitmap(img);
+                    image_view.setImageBitmap(rotate(img, exifDegree));
 
                     in.close();
                 } catch (FileNotFoundException e) {
