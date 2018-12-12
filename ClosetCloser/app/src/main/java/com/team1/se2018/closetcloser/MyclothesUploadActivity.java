@@ -434,6 +434,7 @@ public class MyclothesUploadActivity extends Activity {
 
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -446,23 +447,32 @@ public class MyclothesUploadActivity extends Activity {
                 try {
 
                     clothes_path = data.getData();
+
+
                     in = getContentResolver().openInputStream(clothes_path);
 
                     img = BitmapFactory.decodeStream(in);
+                    // test
+                    //img = Bitmap.createScaledBitmap(img,(int)(img.getWidth()*0.5), (int)(img.getHeight()*0.5), true);
+                    // test
+                    // img = Bitmap.createScaledBitmap(img,(int)(500), (int)(500), true);
 
                     String imagePath = getRealPathFromURI(clothes_path); // path 경로
                     ExifInterface exif = null;
-                    Log.e("please_help",imagePath);
+                    Log.e("image_path_uri",imagePath);
                     try {
                         exif = new ExifInterface(imagePath);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
                     int exifOrientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
                     int exifDegree = exifOrientationToDegrees(exifOrientation);
 
+                    img = rotate(img, exifDegree);
+
                     image_view.setVisibility(View.VISIBLE);
-                    image_view.setImageBitmap(rotate(img, exifDegree));
+                    image_view.setImageBitmap(img);
 
                     in.close();
                 } catch (FileNotFoundException e) {
