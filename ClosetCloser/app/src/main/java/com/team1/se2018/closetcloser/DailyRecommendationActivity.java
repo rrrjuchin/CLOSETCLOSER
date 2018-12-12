@@ -64,6 +64,7 @@ public class DailyRecommendationActivity extends Fragment
     final String SERVER_URL_R = "http://54.180.112.26/recommend.php";
     final int MY_SOCKET_TIMEOUT_MS_R = 50000;
 
+
     String userID = null;
     String season = "winter";
 
@@ -162,24 +163,7 @@ public class DailyRecommendationActivity extends Fragment
             }
         });
 
-        // create bottom sheet
-        Button deleteBtn = (Button) view.findViewById(R.id.deleteButton);
-        deleteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BadFeedbackBSD badFeedbackBSD = BadFeedbackBSD.getInstance();
-                badFeedbackBSD.show(getActivity().getSupportFragmentManager(), "bottomSheet");
-            }
-        });
 
-        FrameLayout feedbackBtn = (FrameLayout) view.findViewById(R.id.drchild_fragment_container);
-        feedbackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GoodFeedbackBSD goodFeedbackBSD = GoodFeedbackBSD.getInstance();
-                goodFeedbackBSD.show(getActivity().getSupportFragmentManager(), "bottomSheet");
-            }
-        });
 
         FloatingActionButton refreshBtn = (FloatingActionButton) view.findViewById(R.id.btn_refresh);
         refreshBtn.setOnClickListener(new View.OnClickListener() {
@@ -347,13 +331,18 @@ public class DailyRecommendationActivity extends Fragment
                     outer_id_3 = obj.getString("outer_id_3");
 
                     // test toast
-                    Toast.makeText(getActivity(),bottom_id_1+bottom_id_2+bottom_id_3+outer_id_1+outer_id_2+outer_id_3,Toast.LENGTH_SHORT).show();
-
-                    DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
-                    frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
+                    // Toast.makeText(getActivity(),bottom_id_1+bottom_id_2+bottom_id_3+outer_id_1+outer_id_2+outer_id_3,Toast.LENGTH_SHORT).show();
 
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                     transaction.replace(R.id.drchild_fragment_container, childFragment).commit();
+
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
+                            frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
+                        }
+                    }, 100);
+
 
 
                 }catch(JSONException e){
@@ -390,5 +379,7 @@ public class DailyRecommendationActivity extends Fragment
         requestQueue.add(stringRequest);
 
     }
+
+
 
 }

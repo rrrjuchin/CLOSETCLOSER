@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -46,10 +47,14 @@ public class DRChildFragment extends Fragment{
     private String top_img;
     private String bottom_img;
     private String outer_img;
+    private String clothes_season;
 
     private ImageView ivOuter;
     private ImageView ivTop;
     private ImageView ivBottom;
+
+    private Button deleteBtn;
+    private FrameLayout feedbackBtn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +66,29 @@ public class DRChildFragment extends Fragment{
         ivOuter = (ImageView)rootView.findViewById(R.id.outer_image);
         ivTop = (ImageView)rootView.findViewById(R.id.top_image);
         ivBottom = (ImageView)rootView.findViewById(R.id.bottom_image);
+
+        // create bottom sheet
+        deleteBtn = (Button) rootView.findViewById(R.id.deleteButton);
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BadFeedbackBSD badFeedbackBSD = BadFeedbackBSD.getInstance();
+                badFeedbackBSD.getClothes(top_img, bottom_img, outer_img, clothes_season);
+                badFeedbackBSD.show(getActivity().getSupportFragmentManager(), "bottomSheet");
+            }
+        });
+        deleteBtn.setClickable(false);
+
+        feedbackBtn = (FrameLayout) rootView.findViewById(R.id.fragcont_dr);
+        feedbackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GoodFeedbackBSD goodFeedbackBSD = GoodFeedbackBSD.getInstance();
+                goodFeedbackBSD.getClothes(top_img, bottom_img, outer_img, clothes_season);
+                goodFeedbackBSD.show(getActivity().getSupportFragmentManager(), "bottomSheet");
+            }
+        });
+        feedbackBtn.setClickable(false);
 
         return rootView;
     }
@@ -81,6 +109,11 @@ public class DRChildFragment extends Fragment{
         if(top == null || bottom==null){
             return;
         }
+
+        top_img = top;
+        bottom_img = bottom;
+        outer_img = outer;
+        clothes_season = season;
 
         String doc_path = "Usercloset/" + firebaseUser.getUid() + "/" + season + "__top";
 
@@ -127,6 +160,9 @@ public class DRChildFragment extends Fragment{
                 }
             }
         });
+
+        deleteBtn.setClickable(true);
+        feedbackBtn.setClickable(true);
 
 
     }
