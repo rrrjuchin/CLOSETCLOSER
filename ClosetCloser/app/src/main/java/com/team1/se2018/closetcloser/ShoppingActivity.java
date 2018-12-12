@@ -315,7 +315,7 @@ public class ShoppingActivity extends Fragment
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> params = new HashMap<>();
-                params.put("userID", userID);
+                params.put("sex", check_sex);
                 params.put("season", season);
                 params.put("top_id_1", top_id_1);
                 params.put("top_id_2", top_id_2);
