@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -102,15 +103,6 @@ public class DailyRecommendationActivity extends Fragment
     }
 
     @Override
-    public void onStart(){
-        super.onStart();
-        getUserID();
-        // get id of top
-        randseltop_ini();
-    }
-
-
-    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
 
@@ -122,6 +114,13 @@ public class DailyRecommendationActivity extends Fragment
 
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.drchild_fragment_container, childFragment).commit();
+
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
+                        frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
+                    }
+                }, 100);
 
             }
         });
@@ -135,6 +134,13 @@ public class DailyRecommendationActivity extends Fragment
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.drchild_fragment_container, childFragment2).commit();
 
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        DRChildFragment2 frag = (DRChildFragment2) childFragment2.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
+                        frag.getimgUID(top_id_2, bottom_id_2, outer_id_2, season);
+                    }
+                }, 100);
+
             }
         });
 
@@ -146,6 +152,13 @@ public class DailyRecommendationActivity extends Fragment
 
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.drchild_fragment_container, childFragment3).commit();
+
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        DRChildFragment3 frag = (DRChildFragment3) childFragment3.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
+                        frag.getimgUID(top_id_3, bottom_id_3, outer_id_3, season);
+                    }
+                }, 100);
             }
         });
 
@@ -174,84 +187,7 @@ public class DailyRecommendationActivity extends Fragment
             @Override
             public void onClick(View v) {
 
-
-                final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-                progressDialog.setTitle("Recommendation");
-                progressDialog.show();
-                progressDialog.setMessage("Loading..");
-
-
-                Log.d("here22", String.valueOf(found));
-                if(!found){
-                    progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "옷장에 등록된 옷의 개수가 부족합니다", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-
-                // get new recommendation
-                // post image to server
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_URL_R, new Response.Listener<String>() {
-
-
-                    @Override
-                    public void onResponse(String response) {
-
-                        try{
-                            progressDialog.dismiss();
-
-                            JSONObject obj = new JSONObject(response);
-
-                            bottom_id_1 = obj.optString("bottom_id_1");
-                            bottom_id_2 = obj.getString("bottom_id_2");
-                            bottom_id_3 = obj.getString("bottom_id_3");
-
-                            outer_id_1 = obj.getString("outer_id_1");
-                            outer_id_2 = obj.getString("outer_id_2");
-                            outer_id_3 = obj.getString("outer_id_3");
-
-                            // test toast
-                            Toast.makeText(getActivity(),bottom_id_1+bottom_id_2+bottom_id_3+outer_id_1+outer_id_2+outer_id_3,Toast.LENGTH_SHORT).show();
-
-                            DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
-                            frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
-
-                            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                            transaction.replace(R.id.drchild_fragment_container, childFragment).commit();
-
-
-                        }catch(JSONException e){
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Toast.makeText(getApplicationContext(), "error: "+error.toString(), Toast.LENGTH_LONG).show();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-
-                        Map<String, String> params = new HashMap<>();
-                        params.put("userID", userID);
-                        params.put("season", season);
-                        params.put("top_id_1", top_id_1);
-                        params.put("top_id_2", top_id_2);
-                        params.put("top_id_3", top_id_3);
-                        return params;
-                    }
-                };
-
-                stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                        MY_SOCKET_TIMEOUT_MS_R,
-                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
-                ));
-
-                // may occurs error
-                RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
-                requestQueue.add(stringRequest);
+                randseltop_ini();
 
             }
         });
@@ -289,7 +225,15 @@ public class DailyRecommendationActivity extends Fragment
     }
 
     boolean found = false;
-    private boolean randseltop_ini() {
+    private void randseltop_ini() {
+
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setTitle("Recommendation");
+        progressDialog.show();
+        progressDialog.setMessage("Loading..");
+
+        userID = firebaseUser.getUid();
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseAuth fhj = FirebaseAuth.getInstance();
         FirebaseUser fu = fhj.getCurrentUser();
@@ -298,7 +242,9 @@ public class DailyRecommendationActivity extends Fragment
         final int[] randomindex = {0};
         final ArrayList randListRes = new ArrayList();
         final ArrayList randListTop = new ArrayList();
+        final int[] random_tag = {0};
         found = false;
+
         db.collection("/Usercloset/"+fu.getUid()+"/winter__top")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -317,22 +263,26 @@ public class DailyRecommendationActivity extends Fragment
 
                             Log.d("here", Integer.toString(randListTop.size()));
                             if(randListTop.size() < 3){
+                                found = false;
+                                recommend(found, progressDialog);
                                 return;
                             }
-
-
                             for (i[0] = 0; i[0] < 3; i[0]++) {
+                                random_tag[0] = 0;
                                 randomindex[0] = randomRange(0, cnt[0] - 1);
                                 if(i[0] == 0){
                                     randListRes.add(randListTop.get(randomindex[0]));
                                     continue;
                                 }
-
                                 for(int j = 0 ; j < randListRes.size();j++){
                                     if(randListTop.get(randomindex[0]) == randListRes.get(j).toString()){
                                         i[0]-=1;
+                                        random_tag[0] = 1;
                                         break;
                                     }
+                                }
+                                if(random_tag[0] == 1){
+                                    continue;
                                 }
                                 randListRes.add(randListTop.get(randomindex[0]));
                                 System.out.println(randListRes);
@@ -341,7 +291,10 @@ public class DailyRecommendationActivity extends Fragment
                             top_id_1 = randListRes.get(0).toString();
                             top_id_2 = randListRes.get(1).toString();
                             top_id_3 = randListRes.get(2).toString();
+
                             found = true;
+                            recommend(found, progressDialog);
+
                             Log.d("here", String.valueOf(found));
 
 
@@ -353,7 +306,6 @@ public class DailyRecommendationActivity extends Fragment
                     }
 
                 });
-        return found;
 
     }
 
@@ -362,13 +314,81 @@ public class DailyRecommendationActivity extends Fragment
         return (int) (Math.random() * (n2 - n1 + 1)) + n1;
     }
 
+    public void recommend(boolean found, final ProgressDialog progressDialog){
 
 
-    void getUserID(){
-        userID = firebaseUser.getUid();
-        // season = "winter";
-        // top_id_1 = "Long_Sleeve__38243e52-b01d-4923-87ae-4243c793c66c";
-        // top_id_2 = "Sweater__cd361af1-9c6e-4fd5-ad32-b8f3445e21ce";
-        // top_id_3 = "Long_Sleeve__d2d20a3e-3e27-4a13-b780-6d32bdaa2ad8";
+        Log.d("here22", String.valueOf(found));
+        if(!found){
+            progressDialog.dismiss();
+            Toast.makeText(getApplicationContext(), "옷장에 등록된 옷의 개수가 부족합니다", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        // get new recommendation
+        // post image to server
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_URL_R, new Response.Listener<String>() {
+
+
+            @Override
+            public void onResponse(String response) {
+
+                try{
+                    progressDialog.dismiss();
+
+                    JSONObject obj = new JSONObject(response);
+
+                    bottom_id_1 = obj.optString("bottom_id_1");
+                    bottom_id_2 = obj.getString("bottom_id_2");
+                    bottom_id_3 = obj.getString("bottom_id_3");
+
+                    outer_id_1 = obj.getString("outer_id_1");
+                    outer_id_2 = obj.getString("outer_id_2");
+                    outer_id_3 = obj.getString("outer_id_3");
+
+                    // test toast
+                    Toast.makeText(getActivity(),bottom_id_1+bottom_id_2+bottom_id_3+outer_id_1+outer_id_2+outer_id_3,Toast.LENGTH_SHORT).show();
+
+                    DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
+                    frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
+
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.drchild_fragment_container, childFragment).commit();
+
+
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Toast.makeText(getApplicationContext(), "error: "+error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("userID", userID);
+                params.put("season", season);
+                params.put("top_id_1", top_id_1);
+                params.put("top_id_2", top_id_2);
+                params.put("top_id_3", top_id_3);
+                return params;
+            }
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                MY_SOCKET_TIMEOUT_MS_R,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
+
+        // may occurs error
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        requestQueue.add(stringRequest);
+
     }
+
 }

@@ -78,7 +78,7 @@ public class DRChildFragment extends Fragment{
 
     public void getimgUID(String top, String bottom, String outer, String season) {
 
-        if(top == null){
+        if(top == null || bottom==null){
             return;
         }
 
