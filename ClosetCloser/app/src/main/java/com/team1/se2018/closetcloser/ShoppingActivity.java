@@ -4,6 +4,33 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -41,26 +68,29 @@ import java.util.Map;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
+
 public class ShoppingActivity extends Fragment
         implements SRChildFragment.OnFragmentInteractionListener, SRChildFragment2.OnFragmentInteractionListener{
-
-
-    private OnFragmentInteractionListener mListener;
 
     final String SERVER_URL_A = "http://54.180.112.26/all_new_styles/client.php";
     final int MY_SOCKET_TIMEOUT_MS_R = 50000;
 
+
+    private OnFragmentInteractionListener mListener;
+    Bundle bundle = new Bundle();
+    SRChildFragment2 fragInfo = new SRChildFragment2();
     final Fragment childFragment = new SRChildFragment();
     final Fragment childFragment2 = new SRChildFragment2();
     final Fragment childFragment3 = new SRChildFragment3();
-
     String userID = null;
     String season = "winter";
+
+    String man = "man";
 
     String top_id_1 = null;
     String top_id_2 = null;
     String top_id_3 = null;
-
+    private String check_sex = "*";
     String bottom_id_1 = null;
     String bottom_id_2 = null;
     String bottom_id_3 = null;
@@ -69,11 +99,12 @@ public class ShoppingActivity extends Fragment
     String outer_id_2 = null;
     String outer_id_3 = null;
 
-    private String check_sex = "*";
+    String top1,top2,top3;
+    String bottom1,bottom2,bottom3;
+    String outer1,outer2,outer3;
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -95,8 +126,10 @@ public class ShoppingActivity extends Fragment
 
             @Override
             public void onClick(View v) {
+
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.srchild_fragment_container, childFragment).commit();
+
             }
         });
 
@@ -105,14 +138,14 @@ public class ShoppingActivity extends Fragment
 
             @Override
             public void onClick(View v) {
+
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.srchild_fragment_container, childFragment2).commit();
-                Log.e("hahahahahahahahahaha",check_sex);
                 randseltop_ini();
+                //fragInfo.setArguments(bundle);
+                /////////////////////////////////real downurl address. we bundle this 9 from here to fragInfo
 
-                // go
-
-
+                ////////////////////////////////////////////////////////////////////
+                transaction.replace(R.id.srchild_fragment_container,  fragInfo).commit();
             }
         });
 
@@ -139,25 +172,20 @@ public class ShoppingActivity extends Fragment
         final int[] random_tag = {0};
         found = false;
         DocumentReference docRef = db.collection("Normmem").document(fu.getUid());
-
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                Log.e("haha",check_sex);
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        Log.e("haha2",check_sex);
                         if(document.get("sex") == "M"){
                             check_sex = "man";
                         }else{
                             check_sex = "woman";
                         }
-                        db.collection("/Seller_cloth/"+ check_sex + "/winter__top")
+                        db.collection("/SellerCloset/man/winter__top")
                                 .get()
                                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                         if (task.isSuccessful()) {
@@ -169,11 +197,9 @@ public class ShoppingActivity extends Fragment
                                                 System.out.println(randListTop);
                                                 System.out.println(cnt[0]);
                                             }
-                                            Log.e("haha3",check_sex);
-                                            Log.d("here", Integer.toString(randListTop.size()));
                                             if(randListTop.size() < 3){
                                                 found = false;
-                                                recommend(found, progressDialog);
+                                                //recommend(found, progressDialog);
                                                 return;
                                             }
                                             for (i[0] = 0; i[0] < 3; i[0]++) {
@@ -196,21 +222,19 @@ public class ShoppingActivity extends Fragment
                                                 randListRes.add(randListTop.get(randomindex[0]));
                                                 System.out.println(randListRes);
                                             }
-                                            Log.e("haha4",check_sex);
                                             top_id_1 = randListRes.get(0).toString();
                                             top_id_2 = randListRes.get(1).toString();
                                             top_id_3 = randListRes.get(2).toString();
-                                            Log.e("hahahahahahahahahaha",top_id_1);
-                                            Log.e("hahahahahahahahahaha",top_id_2);
-                                            Log.e("hahahahahahahahahaha",top_id_3);
                                             found = true;
-                                            //recommend(found, progressDialog);
 
-                                            Log.d("here", String.valueOf(found));
+                                            recommend(found, progressDialog);
 
+
+                                            //bundle.putString("top1", top_id_1);
+                                            //bundle.putString("top2", top_id_2);
+                                            //bundle.putString("top3", top_id_3);
 
                                         } else {
-                                            System.out.println("Shit");
 
                                         }
 
@@ -243,6 +267,7 @@ public class ShoppingActivity extends Fragment
                     + " must implement OnFragmentInteractionListener");
         }
     }
+    //////////////////////////////////////////////////this function is from key to downurl;
 
     @Override
     public void onDetach() {
@@ -253,6 +278,7 @@ public class ShoppingActivity extends Fragment
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
     }
 
     public interface OnFragmentInteractionListener {
@@ -291,14 +317,25 @@ public class ShoppingActivity extends Fragment
                     outer_id_2 = obj.getString("outer_id_2");
                     outer_id_3 = obj.getString("outer_id_3");
 
-                    // test toast
-                    Toast.makeText(getActivity(),bottom_id_1+bottom_id_2+bottom_id_3+outer_id_1+outer_id_2+outer_id_3,Toast.LENGTH_SHORT).show();
 
-                    DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
-                    frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
+                    // test toast
 
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                    transaction.replace(R.id.drchild_fragment_container, childFragment).commit();
+                    transaction.replace(R.id.srchild_fragment_container, childFragment2).commit();
+
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            SRChildFragment2 frag = (SRChildFragment2) childFragment2.getFragmentManager().findFragmentById(R.id.srchild_fragment_container);
+                            frag.geturl(top_id_1, bottom_id_1, outer_id_1, top_id_2, bottom_id_2, outer_id_2, top_id_3, bottom_id_3, outer_id_3);
+                        }
+                    }, 100);
+
+
+                    //DRChildFragment frag = (DRChildFragment) childFragment.getFragmentManager().findFragmentById(R.id.drchild_fragment_container);
+                    //frag.getimgUID(top_id_1, bottom_id_1, outer_id_1, season);
+
+                    // FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    // transaction.replace(R.id.drchild_fragment_container, childFragment).commit();
 
 
                 }catch(JSONException e){
@@ -315,11 +352,15 @@ public class ShoppingActivity extends Fragment
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> params = new HashMap<>();
-                params.put("sex", check_sex);
+                params.put("sex", man);
                 params.put("season", season);
                 params.put("top_id_1", top_id_1);
                 params.put("top_id_2", top_id_2);
                 params.put("top_id_3", top_id_3);
+
+
+
+
                 return params;
             }
         };
@@ -336,5 +377,5 @@ public class ShoppingActivity extends Fragment
 
     }
 
-}
 
+}

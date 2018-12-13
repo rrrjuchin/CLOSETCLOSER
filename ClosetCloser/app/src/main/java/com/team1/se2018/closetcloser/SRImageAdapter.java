@@ -19,56 +19,55 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SRImageAdapter extends RecyclerView.Adapter<SRImageAdapter.ImageViewHolder> {
     private Context mContext;
-    private List<Upload> mUploads;
+    private ArrayList<SRUpload> mUploads;
     private OnItemClickListener mListener;
     private Fragment mFragment;
 
-    public SRImageAdapter(Fragment fragment, List<Upload> uploads) {
+    public SRImageAdapter(Fragment fragment, ArrayList<SRUpload> uploads) {
         //mContext = context;
         mFragment = fragment;
         mUploads = uploads;
     }
 
+    public void addItem(SRUpload item){
+        mUploads.add(item);
+    }
+
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(mFragment.getActivity()).inflate(R.layout.activity_srlist_item_view1, parent, false);
+        View v = LayoutInflater.from(mFragment.getActivity()).inflate(R.layout.activity_srlist_item_view2, parent, false);
         return new ImageViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
-        Upload uploadCurrent = mUploads.get(position);
-        Picasso.with(mFragment.getActivity())
-                .load(uploadCurrent.getImageUrl())
-                .placeholder(R.mipmap.ic_launcher)
-                .fit()
-                .centerCrop()
-                .into(holder.imageView);
+        SRUpload uploadCurrent = mUploads.get(position);
         Picasso.with(mFragment.getActivity())
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
                 .fit()
                 .centerCrop()
                 .into(holder.rec_imageView);
-        /**
+
         Picasso.with(mFragment.getActivity())
-                .load(uploadCurrent.getImageUrl())
+                .load(uploadCurrent.getRec1ImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
                 .fit()
                 .centerCrop()
                 .into(holder.rec_imageView2);
         Picasso.with(mFragment.getActivity())
-                .load(uploadCurrent.getImageUrl())
+                .load(uploadCurrent.getRec2ImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
                 .fit()
                 .centerCrop()
                 .into(holder.rec_imageView3);
-        **/
+
     }
 
     @Override
@@ -79,20 +78,18 @@ public class SRImageAdapter extends RecyclerView.Adapter<SRImageAdapter.ImageVie
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         public TextView textViewName;
-        public ImageView imageView;
         public ImageView rec_imageView;
-        //public ImageView rec_imageView2;
-        //public ImageView rec_imageView3;
+        public ImageView rec_imageView2;
+        public ImageView rec_imageView3;
         //public String hpadd;
         public Button btn_gobuy_rec;
         public ImageViewHolder(View itemView) {
             super(itemView);
 
             //textViewName = itemView.findViewById(R.id.itemname_sr1);
-            imageView = itemView.findViewById(R.id.item_image);
             rec_imageView = itemView.findViewById(R.id.codi_image_outer);
-            //rec_imageView2 = itemView.findViewById(R.id.codi_image_top);
-            //rec_imageView3 = itemView.findViewById(R.id.codi_image_bottom);
+            rec_imageView2 = itemView.findViewById(R.id.codi_image_top);
+            rec_imageView3 = itemView.findViewById(R.id.codi_image_bottom);
             btn_gobuy_rec = (Button)itemView.findViewById(R.id.redirect_shop);
 
             btn_gobuy_rec.setOnClickListener(new View.OnClickListener(){

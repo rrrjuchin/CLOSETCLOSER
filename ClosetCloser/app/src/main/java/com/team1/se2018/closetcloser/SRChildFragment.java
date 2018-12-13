@@ -41,7 +41,7 @@ public class SRChildFragment extends Fragment implements SRImageAdapter.OnItemCl
     private ValueEventListener mDBListener;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-    private List<Upload> mUploads;
+    private ArrayList<SRUpload> mUploads;
     private Bitmap imgdwn;
     private String upld;
 
@@ -81,8 +81,8 @@ public class SRChildFragment extends Fragment implements SRImageAdapter.OnItemCl
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mUploads.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Upload upload = postSnapshot.getValue(Upload.class);
-                    upload.setKey(postSnapshot.getKey());
+                    SRUpload upload = postSnapshot.getValue(SRUpload.class);
+                    //upload.setKey(postSnapshot.getKey());
                     mUploads.add(upload);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -122,17 +122,19 @@ public class SRChildFragment extends Fragment implements SRImageAdapter.OnItemCl
 
     @Override
     public void onDeleteClick(int position) {
-        Upload selectedItem = mUploads.get(position);
-        final String selectedKey = selectedItem.getKey();
+        SRUpload selectedItem = mUploads.get(position);
+        //final String selectedKey = selectedItem.getKey();
 
         StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
         imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                mDatabaseRef.child(selectedKey).removeValue();
+                // mDatabaseRef.child(selectedKey).removeValue();
             }
         });
     }
+
+
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

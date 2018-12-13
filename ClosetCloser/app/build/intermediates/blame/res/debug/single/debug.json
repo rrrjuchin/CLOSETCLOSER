@@ -12,24 +12,24 @@
         "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
-        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_48dp.png.flat",
-        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_48dp.png"
-    },
-    {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_menu_item_action_area.xml.flat",
         "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\781610cf943d0b925d54b820566b1f29\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable-mdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
-        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
-    },
-    {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
         "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
+        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable_buttonback.xml.flat",
@@ -44,12 +44,12 @@
         "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\6523aa7be0013b49a581586262191308\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
-        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
-        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable-ldrtl-xhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_design_tint_password_toggle.xml.flat",
         "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\781610cf943d0b925d54b820566b1f29\\res\\color-v23\\design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable-ldrtl-xhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -68,12 +68,12 @@
         "source": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_icon_blue.png.flat",
-        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-common-4.38.1.aar\\f4d2173c9e7e28a867b0bf4811cd2517\\res\\drawable-hdpi-v4\\com_facebook_button_icon_blue.png"
-    },
-    {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_mcchild_item.xml.flat",
         "source": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\src\\main\\res\\layout\\fragment_mcchild_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_com_facebook_button_icon_blue.png.flat",
+        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-common-4.38.1.aar\\f4d2173c9e7e28a867b0bf4811cd2517\\res\\drawable-hdpi-v4\\com_facebook_button_icon_blue.png"
     },
     {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_title_material.xml.flat",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
-        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
         "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\6523aa7be0013b49a581586262191308\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\dongyoung\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\d0016dd6e725db5d82267f40b66f31f2\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "C:\\Users\\dongyoung\\Documents\\GitHub\\CLOSETCLOSER\\ClosetCloser\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
